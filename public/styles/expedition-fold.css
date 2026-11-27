@@ -1,0 +1,117 @@
+@import url("./alternatives.css");
+.expedition-fold {
+  --ground: #eee9de;
+  --paper: #f4f0e8;
+  --ink: #273d47;
+  --muted: #425e68;
+  --accent: #315e78;
+  --on-accent: #faf9ef;
+  --rule: #9fa9a5;
+  --display: Grenze, serif;
+}
+.expedition-sheet {
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+.expedition-sheet .option-identity {
+  padding: 2rem 2.5rem;
+}
+.expedition-sheet h1 {
+  max-width: 24ch;
+}
+.fold-route {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--rule);
+}
+.fold-route svg {
+  position: absolute;
+  inset: 0 0 auto;
+  width: 100%;
+  height: 110px;
+  pointer-events: none;
+}
+.fold-route path {
+  fill: none;
+  stroke: #b65043;
+  stroke-width: 3;
+}
+.fold-route circle {
+  fill: #315e78;
+}
+.fold-route a {
+  min-width: 0;
+  padding: 6rem 1.5rem 1.5rem;
+  text-decoration: none;
+}
+.fold-route a + a {
+  border-left: 1px dashed var(--rule);
+}
+.fold-route strong {
+  font-family: var(--display);
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+.fold-route a > span {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.fold-route a:is(:hover, :focus-visible) {
+  background: #dbe5e7;
+}
+.expedition-fold .profile-section {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 80ch;
+}
+.expedition-fold .career-meta h3 {
+  font-family: var(--display);
+  font-size: 1.85rem;
+}
+.expedition-fold .education-list {
+  gap: 3rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .fold-route path {
+    stroke-dasharray: 1;
+    animation: expedition-route 750ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .fold-route a {
+    transition: background-color 180ms ease-out;
+  }
+  @keyframes expedition-route {
+    from {
+      stroke-dashoffset: 1;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .expedition-sheet .option-identity {
+    padding: 1.25rem;
+  }
+  .fold-route {
+    grid-template-columns: 1fr;
+  }
+  .fold-route svg {
+    display: none;
+  }
+  .fold-route a {
+    padding: 0.75rem 1.25rem;
+  }
+  .fold-route a + a {
+    border-left: 0;
+    border-top: 1px dashed var(--rule);
+  }
+  .fold-route strong {
+    font-size: 1.35rem;
+  }
+  .fold-route a > span {
+    display: none;
+  }
+}

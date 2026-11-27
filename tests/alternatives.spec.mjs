@@ -3,6 +3,8 @@ import { test, expect } from "@playwright/test";
 const alternatives = [
   ["field-journal", "fieldbook-open"],
   ["relic-hall", "relic-reveal"],
+  ["alchemy-workshop", "alchemy-place"],
+  ["expedition-fold", "expedition-route"],
 ];
 
 for (const [id, motion] of alternatives) {

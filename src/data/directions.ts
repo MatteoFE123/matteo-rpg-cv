@@ -75,6 +75,26 @@ export const alternatives = [
       en: "A nocturnal gallery with monumental identity and one real project at scale. Dark ink, ivory and a quiet reading rhythm.",
     },
   },
+  {
+    id: "alchemy-workshop",
+    specimen: "DL-024",
+    source: "Color Foundry",
+    title: { es: "Taller de alquimia", en: "The alchemy workshop" },
+    description: {
+      es: "Cobalto, terracota y citrón organizan un taller de competencias. Composición asimétrica con materiales reales, no puntuaciones.",
+      en: "Cobalt, terracotta and citron organize a skills workshop. An asymmetric composition of real materials, not scores.",
+    },
+  },
+  {
+    id: "expedition-fold",
+    specimen: "DL-017",
+    source: "Folded Atlas",
+    title: { es: "Cartas de expedición", en: "Expedition letters" },
+    description: {
+      es: "Una hoja de tres pliegues conecta competencias, trayectoria y proyectos. Papel, azul y coral, sin repetir el mapa del Atlas.",
+      en: "A three-fold sheet connects skills, employment and projects. Paper, blue and coral without repeating the Atlas map.",
+    },
+  },
 ] as const;
 export type AlternativeDirection = (typeof alternatives)[number];
 export function path(value = "") {

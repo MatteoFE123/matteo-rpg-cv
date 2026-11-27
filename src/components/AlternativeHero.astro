@@ -54,4 +54,62 @@ const c = copy[locale];
       </>
     )
   }
+  {
+    direction.id === "alchemy-workshop" && (
+      <div class="alchemy-bench">
+        <PreviewIdentity locale={locale} />
+        <nav class="alchemy-reagents" aria-label={c.skills}>
+          {skillGroups.slice(0, 3).map((group) => (
+            <a class="alchemy-reagent" href="#skills">
+              <h2>{group.name[locale]}</h2>
+              <span>{group.skills.slice(0, 2).join(" / ")}</span>
+            </a>
+          ))}
+        </nav>
+      </div>
+    )
+  }
+  {
+    direction.id === "expedition-fold" && (
+      <div class="expedition-sheet">
+        <PreviewIdentity locale={locale} />
+        <nav
+          class="fold-route"
+          aria-label={locale === "es" ? "Itinerario del CV" : "CV itinerary"}
+        >
+          <svg
+            viewBox="0 0 1000 110"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M165 56 C285 20 345 86 500 56 S720 20 835 56"
+              pathLength="1"
+            />
+            <circle cx="165" cy="56" r="7" />
+            <circle cx="500" cy="56" r="7" />
+            <circle cx="835" cy="56" r="7" />
+          </svg>
+          <a href="#skills">
+            <>
+              <strong>{c.skills}</strong>
+              <span>Multi-Agent Systems / RAG</span>
+            </>
+          </a>
+          <a href="#career">
+            <>
+              <strong>{c.trajectory}</strong>
+              <span>TEKsystems</span>
+            </>
+          </a>
+          <a href="#projects">
+            <>
+              <strong>{c.projects}</strong>
+              <span>{projects[0].name[locale]}</span>
+            </>
+          </a>
+        </nav>
+      </div>
+    )
+  }
 </section>
