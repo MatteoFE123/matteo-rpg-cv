@@ -35,13 +35,13 @@ const es = locale === "es";
     </p>
     <div class="direction-wall">
       {
-        directions.map((direction) => (
-          <article class="direction-card">
+        directions.map((direction, index) => (
+          <article class="direction-card" style={`--plate-order: ${index}`}>
             <a class="preview-link" href={mockPath(locale, direction.id)}>
               <img
                 src={path(`previews/${direction.id}.png`)}
                 width="1440"
-                height="1000"
+                height="900"
                 alt={`${direction.title[locale]}: ${direction.source}`}
                 loading="lazy"
               />

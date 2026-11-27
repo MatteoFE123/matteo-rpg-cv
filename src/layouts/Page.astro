@@ -36,6 +36,7 @@ const { locale, title, theme = "gallery" } = Astro.props;
         <link rel="stylesheet" href={path(`styles/${theme}.css`)} />
       )
     }
+    <link rel="stylesheet" href={path("styles/motion.css")} />
   </head>
   <body class={theme}>
     <a class="skip-link" href="#main"

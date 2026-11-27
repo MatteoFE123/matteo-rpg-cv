@@ -7,6 +7,13 @@ const directions = [
   "process-ledger",
   "metric-chorus",
 ];
+const focalMotion = {
+  "civic-garden": "atlas-route",
+  "archive-room": "archive-settle",
+  "signal-index": "codex-ink",
+  "process-ledger": "ledger-entry",
+  "metric-chorus": "ink-duration",
+};
 
 for (const direction of directions) {
   test(`${direction}: bilingual exploration, keyboard controls and mobile layout`, async ({
@@ -14,7 +21,22 @@ for (const direction of directions) {
   }) => {
     const errors = [];
     page.on("pageerror", (error) => errors.push(error.message));
+    await page.emulateMedia({ reducedMotion: "no-preference" });
+    await page.addInitScript(() => {
+      window.motionStarts = [];
+      document.addEventListener("animationstart", (event) => {
+        window.motionStarts.push(event.animationName);
+      });
+    });
     await page.goto(`es/mocks/${direction}/`);
+    await expect
+      .poll(() =>
+        page.evaluate(
+          (name) => window.motionStarts.includes(name),
+          focalMotion[direction],
+        ),
+      )
+      .toBe(true);
     await expect(
       page.getByRole("heading", { name: "Matteo Fecci", exact: true }),
     ).toBeVisible();
@@ -94,6 +116,12 @@ for (const direction of directions) {
     await page.emulateMedia({ reducedMotion: "reduce" });
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto(`es/mocks/${direction}/`);
+    expect(
+      await page.evaluate(
+        (name) => window.motionStarts.includes(name),
+        focalMotion[direction],
+      ),
+    ).toBe(false);
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= window.innerWidth,

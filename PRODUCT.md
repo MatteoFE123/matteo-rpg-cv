@@ -48,7 +48,8 @@ Spanish and English offer equivalent content. LinkedIn is the public contact cha
 Original fantasy inspired by tabletop RPGs in the spirit of DnD; no copied game art or official branding.
 Matteo Fecci and AI Developer are always visible as the professional identity.
 Reading this as: a developer portfolio for hiring teams, with tabletop-fantasy language and five separate catalog-derived systems.
-Design variance 6, motion intensity 3, visual density 4: memorable exploration with restrained movement and scannable facts.
+Design variance 6, motion intensity 5, visual density 4: the user requested more dynamic, world-specific animation.
+Bounded entrances and interactive transitions must preserve scannable facts and reduced-motion support.
 
 ## Evidence on Hand
 
