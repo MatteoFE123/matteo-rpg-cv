@@ -54,9 +54,35 @@ export const directions = [
 ] as const;
 
 export type Direction = (typeof directions)[number];
+export const alternatives = [
+  {
+    id: "field-journal",
+    specimen: "DL-014",
+    source: "Field Manual",
+    title: { es: "Cuaderno de campaña", en: "The campaign fieldbook" },
+    description: {
+      es: "Un cuaderno abierto: identidad en una hoja, inventario de competencias en la otra. Tipografía condensada, mineral, verde y ámbar.",
+      en: "An open fieldbook: identity on one leaf, a skills inventory on the other. Condensed type, mineral, green and amber.",
+    },
+  },
+  {
+    id: "relic-hall",
+    specimen: "DL-003",
+    source: "Quiet Monument",
+    title: { es: "Santuario de las reliquias", en: "The relic sanctuary" },
+    description: {
+      es: "Una galería nocturna con identidad monumental y un proyecto real a gran escala. Tinta oscura, marfil y una lectura serena.",
+      en: "A nocturnal gallery with monumental identity and one real project at scale. Dark ink, ivory and a quiet reading rhythm.",
+    },
+  },
+] as const;
+export type AlternativeDirection = (typeof alternatives)[number];
 export function path(value = "") {
   return `${import.meta.env.BASE_URL.replace(/\/$/, "")}/${value.replace(/^\//, "")}`;
 }
-export function mockPath(locale: Locale, direction: Direction["id"]) {
+export function mockPath(
+  locale: Locale,
+  direction: Direction["id"] | AlternativeDirection["id"],
+) {
   return path(`${locale}/mocks/${direction}/`);
 }

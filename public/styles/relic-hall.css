@@ -1,0 +1,107 @@
+@import url("./alternatives.css");
+.relic-hall {
+  --ground: #171816;
+  --paper: #262922;
+  --ink: #f3f0e8;
+  --muted: #bcc2b5;
+  --accent: #f3f0e8;
+  --on-accent: #171816;
+  --rule: #62695b;
+  --display: Grenze, serif;
+  color-scheme: dark;
+}
+.relic-hall .option-identity {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  column-gap: 4rem;
+  align-items: start;
+}
+.relic-hall .option-identity h1 {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  max-width: 9ch;
+  font-size: clamp(4rem, 7vw, 6rem);
+}
+.relic-hall .professional-role,
+.relic-hall .introduction,
+.relic-hall .primary-action {
+  grid-column: 2;
+}
+.relic-hall .professional-role {
+  margin-top: 0.5rem;
+}
+.relic-hall .primary-action {
+  margin-bottom: 1rem;
+}
+.relic-aperture {
+  display: block;
+  margin-top: 3rem;
+  padding: 2rem 2.5rem;
+  border: 1px solid var(--rule);
+  text-decoration: none;
+}
+.relic-aperture h2 {
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  max-width: 24ch;
+}
+.relic-aperture p {
+  margin-top: 1rem;
+  font-weight: 700;
+}
+.relic-aperture > span {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.relic-aperture:is(:hover, :focus-visible) {
+  background: var(--paper);
+}
+.relic-hall .profile-section {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+.relic-hall .skill-groups {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+}
+.relic-hall .career-list > li {
+  grid-template-columns: 1.3fr 1fr;
+  gap: 4rem;
+}
+.relic-hall .career-meta h3 {
+  font-family: var(--display);
+  font-size: 1.8rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .relic-aperture {
+    animation: relic-reveal 650ms cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background-color 180ms ease-out;
+  }
+  @keyframes relic-reveal {
+    from {
+      clip-path: inset(0 0 75% 0);
+    }
+    to {
+      clip-path: inset(0);
+    }
+  }
+}
+@media (max-width: 767px) {
+  .relic-hall .option-identity {
+    display: block;
+  }
+  .relic-hall .option-identity h1 {
+    font-size: clamp(3.5rem, 15vw, 4.5rem);
+  }
+  .relic-aperture {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+  }
+  .relic-aperture h2 {
+    font-size: 2rem;
+  }
+  .relic-hall .skill-groups,
+  .relic-hall .career-list > li {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}

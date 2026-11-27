@@ -1,0 +1,121 @@
+@import url("./alternatives.css");
+.field-journal {
+  --ground: #ecebe5;
+  --paper: #f5f4ec;
+  --ink: #20372c;
+  --muted: #465b4f;
+  --accent: #145c4a;
+  --on-accent: #faf8ed;
+  --rule: #96a59a;
+  --display: "Barlow Condensed", sans-serif;
+}
+.journal-spread {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: var(--paper);
+  border: 1px solid var(--rule);
+}
+.journal-spread .option-identity {
+  padding: 2.5rem;
+}
+.journal-inventory {
+  --ink: #faf8ed;
+  --muted: #dce8da;
+  --accent: #f0a23b;
+  --on-accent: #20372c;
+  padding: 2rem 2.5rem;
+  background: #145c4a;
+  color: var(--ink);
+}
+.journal-inventory h2 {
+  font-size: 2.25rem;
+}
+.journal-inventory nav {
+  margin-top: 1.5rem;
+}
+.journal-inventory a {
+  display: block;
+  min-height: 72px;
+  padding: 0.65rem 0;
+  text-decoration: none;
+}
+.journal-inventory a + a {
+  border-top: 1px solid #749487;
+}
+.journal-inventory a span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.journal-inventory a:hover strong {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+.journal-route {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  border: 1px solid var(--rule);
+  border-top: 0;
+  background: var(--paper);
+}
+.journal-route a {
+  padding: 0.85rem 0.25rem;
+  font-weight: 700;
+}
+.field-journal .skill-groups {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
+}
+.field-journal .career-meta h3 {
+  font-family: var(--display);
+  font-size: 1.75rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .journal-inventory {
+    animation: fieldbook-open 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes fieldbook-open {
+    from {
+      clip-path: inset(0 15% 0 0);
+    }
+    to {
+      clip-path: inset(0);
+    }
+  }
+}
+@media (max-width: 767px) {
+  .journal-spread {
+    grid-template-columns: 1fr;
+  }
+  .journal-spread .option-identity,
+  .journal-inventory {
+    padding: 1.25rem;
+  }
+  .journal-inventory h2 {
+    font-size: 1.75rem;
+  }
+  .journal-inventory nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.35rem 1rem;
+    margin-top: 0.5rem;
+  }
+  .journal-inventory a {
+    min-height: 48px;
+    font-size: 0.85rem;
+  }
+  .journal-inventory a + a {
+    border: 0;
+  }
+  .journal-inventory a span {
+    display: none;
+  }
+  .journal-route {
+    gap: 0.5rem;
+    font-size: 0.8rem;
+  }
+  .field-journal .skill-groups {
+    grid-template-columns: 1fr;
+  }
+}

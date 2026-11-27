@@ -1,0 +1,35 @@
+.option-hero {
+  padding: 2.5rem 4vw 3rem;
+}
+.option-identity {
+  min-width: 0;
+}
+.option-identity h1 {
+  max-width: 12ch;
+}
+.option-identity .primary-action {
+  width: fit-content;
+}
+body:has(.option-hero) .button,
+body:has(.option-hero) .skill-filters button {
+  border-radius: 0;
+}
+body:has(.option-hero) .preview-notice a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+body:has(.option-hero) .reading-section {
+  padding-inline: 4vw;
+}
+@media (max-width: 767px) {
+  .option-hero {
+    padding: 1.25rem 1.25rem 2rem;
+  }
+  .option-identity h1 {
+    font-size: clamp(2.75rem, 12vw, 4rem);
+  }
+  body:has(.option-hero) .reading-section {
+    padding: 3rem 1.25rem;
+  }
+}

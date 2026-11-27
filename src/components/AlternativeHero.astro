@@ -1,0 +1,57 @@
+---
+import PreviewIdentity from "./PreviewIdentity.astro";
+import { copy, projects, skillGroups } from "../data/cv";
+import type { Locale } from "../data/cv";
+import type { AlternativeDirection } from "../data/directions";
+interface Props {
+  locale: Locale;
+  direction: AlternativeDirection;
+}
+const { locale, direction } = Astro.props;
+const c = copy[locale];
+---
+
+<section class="hero option-hero" aria-labelledby="profile-title">
+  {
+    direction.id === "field-journal" && (
+      <>
+        <div class="journal-spread">
+          <PreviewIdentity locale={locale} />
+          <div class="journal-inventory">
+            <h2>
+              {c.grimoire} <span>{c.skills}</span>
+            </h2>
+            <nav aria-label={c.skills}>
+              {skillGroups.map((group) => (
+                <a href="#skills">
+                  <strong>{group.name[locale]}</strong>
+                  <span>{group.skills.slice(0, 2).join(" / ")}</span>
+                </a>
+              ))}
+            </nav>
+          </div>
+        </div>
+        <nav
+          class="journal-route"
+          aria-label={locale === "es" ? "Explorar el CV" : "Explore the CV"}
+        >
+          <a href="#skills">{c.skills}</a>
+          <a href="#career">{c.trajectory}</a>
+          <a href="#projects">{c.projects}</a>
+        </nav>
+      </>
+    )
+  }
+  {
+    direction.id === "relic-hall" && (
+      <>
+        <PreviewIdentity locale={locale} />
+        <a class="relic-aperture" href="#projects">
+          <h2>{projects[0].name[locale]}</h2>
+          <p>{projects[0].employer}</p>
+          <span>{projects[0].tags.join(" / ")}</span>
+        </a>
+      </>
+    )
+  }
+</section>

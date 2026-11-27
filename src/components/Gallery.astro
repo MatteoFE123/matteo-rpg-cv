@@ -1,42 +1,56 @@
 ---
 import Page from "../layouts/Page.astro";
-import { directions, mockPath, path } from "../data/directions";
+import { alternatives, directions, mockPath, path } from "../data/directions";
 import type { Locale } from "../data/cv";
 interface Props {
   locale: Locale;
+  fresh?: boolean;
 }
-const { locale } = Astro.props;
+const { locale, fresh = false } = Astro.props;
 const es = locale === "es";
+const collection = fresh ? alternatives : directions;
+const galleryRoute = fresh ? "designs/new/" : "designs/";
+const title = fresh
+  ? es
+    ? "Nuevas propuestas de diseño"
+    : "New design proposals"
+  : es
+    ? "Archivo de diseños"
+    : "Design archive";
 ---
 
-<Page locale={locale} title={es ? "Archivo de diseños" : "Design archive"}>
+<Page locale={locale} title={title}>
   <header class="gallery-header">
     <a class="wordmark" href={path(`${locale}/`)}>Matteo Fecci</a>
     <nav aria-label={es ? "Idioma" : "Language"}>
       <a
-        href={path("es/designs/")}
+        href={path(`es/${galleryRoute}`)}
         lang="es"
         aria-current={es ? "page" : undefined}>ES</a
       >
       <a
-        href={path("en/designs/")}
+        href={path(`en/${galleryRoute}`)}
         lang="en"
         aria-current={!es ? "page" : undefined}>EN</a
       >
     </nav>
   </header>
   <main id="main" class="gallery-main">
-    <h1>{es ? "Archivo de diseños" : "Design archive"}</h1>
+    <h1>{title}</h1>
     <p class="gallery-intro">
       {
-        es
-          ? "Atlas del artífice es el diseño elegido. Aquí se conservan las cinco propuestas originales del mismo perfil profesional."
-          : "The artificer's atlas is the selected design. The five original proposals for the same professional profile are preserved here."
+        fresh
+          ? es
+            ? "Composiciones nuevas, no cambios de color: el mismo CV real en mundos visuales distintos. El Atlas actual seguirá como portada hasta que elijas otra propuesta."
+            : "New compositions, not recolors: the same real CV in distinct visual worlds. The current Atlas remains the homepage until you choose another proposal."
+          : es
+            ? "Atlas del artífice es el diseño elegido. Aquí se conservan las cinco propuestas originales del mismo perfil profesional."
+            : "The artificer's atlas is the selected design. The five original proposals for the same professional profile are preserved here."
       }
     </p>
     <div class="direction-wall">
       {
-        directions.map((direction, index) => (
+        collection.map((direction, index) => (
           <article class="direction-card" style={`--plate-order: ${index}`}>
             <a class="preview-link" href={mockPath(locale, direction.id)}>
               <img
@@ -67,10 +81,27 @@ const es = locale === "es";
     </div>
     <p class="selection-note">
       {
-        es
-          ? "Este archivo documenta la exploración visual. La web principal utiliza únicamente Atlas del artífice."
-          : "This archive documents the visual exploration. The main website uses only the artificer's atlas."
+        fresh
+          ? es
+            ? "Abre cada propuesta para probar su animación, navegación y versión móvil. Ninguna está elegida todavía."
+            : "Open each proposal to try its motion, navigation and mobile layout. None has been selected yet."
+          : es
+            ? "Este archivo documenta la exploración visual. La web principal utiliza únicamente Atlas del artífice."
+            : "This archive documents the visual exploration. The main website uses only the artificer's atlas."
       }
+    </p>
+    <p class="selection-note">
+      <a href={path(`${locale}/${fresh ? "designs/" : "designs/new/"}`)}>
+        {
+          fresh
+            ? es
+              ? "Ver las propuestas originales"
+              : "View the original proposals"
+            : es
+              ? "Explorar las nuevas propuestas"
+              : "Explore the new proposals"
+        }
+      </a>
     </p>
   </main>
   <footer class="gallery-footer">
