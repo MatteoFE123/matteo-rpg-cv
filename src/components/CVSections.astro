@@ -144,22 +144,154 @@ const c = copy[locale];
   <p class="source-note">{c.source}</p>
 </footer>
 <script>
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const running = new Set<Animation>();
+  const settleDisclosures: (() => void)[] = [];
+  function animate(element: HTMLElement, frames: Keyframe[], duration = 280) {
+    if (reducedMotion.matches || document.hidden || !element.animate)
+      return null;
+    const animation = element.animate(frames, {
+      duration,
+      easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+    });
+    running.add(animation);
+    const cleanup = () => running.delete(animation);
+    animation.finished.then(cleanup, cleanup);
+    return animation;
+  }
+  function layoutTargets(container: HTMLElement, following = false) {
+    const targets = Array.from(container.children).filter(
+      (element): element is HTMLElement => element instanceof HTMLElement,
+    );
+    let next = following
+      ? container.closest(".reading-section")?.nextElementSibling
+      : null;
+    while (next) {
+      if (next instanceof HTMLElement) targets.push(next);
+      next = next.nextElementSibling;
+    }
+    return targets;
+  }
+  function changeLayout(
+    targets: HTMLElement[],
+    update: () => void,
+    duration = 280,
+  ) {
+    const previous = new Map(
+      targets
+        .filter((element) => !element.hidden)
+        .map((element) => [element, element.getBoundingClientRect()]),
+    );
+    for (const element of targets) {
+      for (const animation of element.getAnimations?.() ?? []) {
+        if (running.has(animation)) animation.cancel();
+      }
+    }
+    update();
+    if (reducedMotion.matches || document.hidden) return;
+    for (const element of targets) {
+      if (element.hidden) continue;
+      const before = previous.get(element);
+      const after = element.getBoundingClientRect();
+      const x = before ? before.left - after.left : 0;
+      const y = before ? before.top - after.top : 6;
+      if (before && !x && !y) continue;
+      animate(
+        element,
+        [{ transform: `translate(${x}px, ${y}px)` }, { transform: "none" }],
+        duration,
+      );
+    }
+  }
+  function settleMotion() {
+    for (const animation of running) animation.cancel();
+    for (const settle of settleDisclosures) settle();
+  }
+  reducedMotion.addEventListener("change", () => {
+    if (reducedMotion.matches) settleMotion();
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) settleMotion();
+  });
   const filters = document.querySelectorAll<HTMLButtonElement>("[data-filter]");
   const groups = document.querySelectorAll<HTMLElement>("[data-skill-group]");
   const count = document.querySelector("[data-skill-count]");
+  const skillContainer = document.querySelector<HTMLElement>(".skill-groups")!;
   for (const button of filters) {
     button.addEventListener("click", () => {
+      if (button.getAttribute("aria-pressed") === "true") return;
       const selected = button.dataset.filter;
-      for (const filter of filters) {
-        filter.setAttribute("aria-pressed", String(filter === button));
+      changeLayout(layoutTargets(skillContainer), () => {
+        for (const filter of filters) {
+          filter.setAttribute("aria-pressed", String(filter === button));
+        }
+        let visible = 0;
+        for (const group of groups) {
+          group.hidden =
+            selected !== "all" && group.dataset.skillGroup !== selected;
+          if (!group.hidden) visible += group.querySelectorAll("li").length;
+        }
+        if (count) count.textContent = String(visible);
+      });
+    });
+  }
+  for (const details of document.querySelectorAll<HTMLDetailsElement>(
+    ".project-list details",
+  )) {
+    const summary = details.querySelector("summary")!;
+    const body = details.querySelector<HTMLElement>(".project-body")!;
+    let targetOpen = details.open;
+    let contentAnimation: Animation | null = null;
+    const setOpen = (duration = 280) =>
+      changeLayout(
+        layoutTargets(details.parentElement!, true),
+        () => {
+          details.open = targetOpen;
+        },
+        duration,
+      );
+    settleDisclosures.push(() => {
+      contentAnimation = null;
+      details.open = targetOpen;
+    });
+    details.addEventListener("toggle", () => {
+      if (!contentAnimation) targetOpen = details.open;
+    });
+    summary.addEventListener("click", (event) => {
+      event.preventDefault();
+      targetOpen = !targetOpen;
+      const opacity = getComputedStyle(body).opacity;
+      const clipPath = details.open
+        ? getComputedStyle(body).clipPath
+        : "inset(0 0 100% 0)";
+      contentAnimation?.cancel();
+      contentAnimation = null;
+      if (targetOpen) {
+        setOpen();
+        contentAnimation = animate(body, [
+          { clipPath, opacity },
+          { clipPath: "inset(0)", opacity: 1 },
+        ]);
+      } else {
+        contentAnimation = animate(
+          body,
+          [
+            { opacity, clipPath, transform: "none" },
+            { opacity: 0, clipPath, transform: "translateY(-3px)" },
+          ],
+          150,
+        );
+        if (!contentAnimation) setOpen();
       }
-      let visible = 0;
-      for (const group of groups) {
-        group.hidden =
-          selected !== "all" && group.dataset.skillGroup !== selected;
-        if (!group.hidden) visible += group.querySelectorAll("li").length;
-      }
-      if (count) count.textContent = String(visible);
+      const current = contentAnimation;
+      current?.finished.then(
+        () => {
+          if (contentAnimation !== current) return;
+          contentAnimation = null;
+          if (!targetOpen) setOpen(110);
+        },
+        () => {},
+      );
     });
   }
 </script>

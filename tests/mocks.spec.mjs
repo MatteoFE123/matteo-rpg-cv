@@ -134,6 +134,119 @@ for (const direction of directions) {
   });
 }
 
+test("animated filters and disclosures survive rapid input and reduced-motion changes", async ({
+  page,
+}) => {
+  const errors = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.goto("es/mocks/civic-garden/");
+  const regrouping = await page.evaluate(() => {
+    for (const filter of ["backend", "all", "infra"]) {
+      document.querySelector(`[data-filter="${filter}"]`).click();
+    }
+    return document
+      .querySelector('[data-skill-group="infra"]')
+      .getAnimations()
+      .some((animation) => animation.playState === "running");
+  });
+  expect(regrouping).toBe(true);
+  await expect(page.locator('[data-skill-group="infra"]')).toBeVisible();
+  await expect(page.locator('[data-skill-group="backend"]')).toBeHidden();
+  await expect(page.locator("[data-skill-count]")).toHaveText("5");
+  const summary = page.locator("details summary").first();
+  const revealing = await summary.evaluate((element) => {
+    if (!(element instanceof HTMLElement)) throw new Error("Missing summary");
+    const body = element.parentElement.querySelector(".project-body");
+    element.click();
+    const openingClip = getComputedStyle(body).clipPath;
+    element.click();
+    const closingClip = getComputedStyle(body).clipPath;
+    element.click();
+    return {
+      openingClip,
+      closingClip,
+      running: body
+        .getAnimations()
+        .some((animation) => animation.playState === "running"),
+    };
+  });
+  expect(revealing.running).toBe(true);
+  expect(revealing.openingClip).not.toBe("none");
+  expect(revealing.closingClip).toBe(revealing.openingClip);
+  await expect(page.locator("details").first()).toHaveAttribute("open", "");
+  await summary.evaluate((element) => {
+    if (!(element instanceof HTMLElement)) throw new Error("Missing summary");
+    element.click();
+  });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(page.locator("details").first()).not.toHaveAttribute("open");
+  await summary.focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("details .project-body").first()).toBeVisible();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("details").first()).not.toHaveAttribute("open");
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () =>
+          document
+            .getAnimations()
+            .filter(
+              (animation) =>
+                animation.playState === "running" &&
+                animation.effect?.target instanceof HTMLElement &&
+                animation.effect.target.matches(".skill-group, .project-body"),
+            ).length,
+      ),
+    )
+    .toBe(0);
+  expect(errors).toEqual([]);
+});
+
+test("professional content and native disclosures remain usable without JavaScript", async ({
+  browser,
+  baseURL,
+}) => {
+  const context = await browser.newContext({
+    baseURL,
+    javaScriptEnabled: false,
+  });
+  try {
+    const page = await context.newPage();
+    await page.goto("es/mocks/archive-room/");
+    await expect(
+      page.getByRole("heading", { name: "Matteo Fecci", exact: true }),
+    ).toBeVisible();
+    await expect(page.locator('[data-skill-group="ai"]')).toBeVisible();
+    await page.locator("details summary").first().click();
+    await expect(page.locator("details .project-body").first()).toBeVisible();
+  } finally {
+    await context.close();
+  }
+});
+
+test("filters and disclosures still work when Web Animations are unavailable", async ({
+  page,
+}) => {
+  await page.addInitScript(() => {
+    Object.defineProperties(Element.prototype, {
+      animate: { value: undefined },
+      getAnimations: { value: undefined },
+    });
+  });
+  await page.goto("es/mocks/civic-garden/");
+  await page.getByRole("button", { name: "Backend y APIs" }).click();
+  await expect(page.locator("[data-skill-count]")).toHaveText("6");
+  await expect(page.locator('[data-skill-group="ai"]')).toBeHidden();
+  const summary = page.locator("details summary").first();
+  await summary.focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("details .project-body").first()).toBeVisible();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("details").first()).not.toHaveAttribute("open");
+});
+
 test("gallery presents five equally sized directions and public-safe downloadable PDFs", async ({
   page,
   request,
