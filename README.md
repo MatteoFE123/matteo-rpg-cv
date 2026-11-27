@@ -16,6 +16,9 @@ npm run dev
 Open the address printed by Astro. The root and `/es/` show the Spanish atlas; `/en/`
 shows its English equivalent. Previous proposals remain at `/es/designs/` and
 `/en/designs/`, with their original mock URLs preserved as a noindex archive.
+The second comparison round lives at `/es/designs/new/` and `/en/designs/new/`:
+five separate, animated compositions, not recolors. Their ten bilingual mock routes
+are also noindex previews. They do not replace the approved Atlas until a new choice is made.
 Node 22.23.4 or newer is required; the development dependencies include a project-local runtime
 so npm scripts do not require changing a shared system installation.
 

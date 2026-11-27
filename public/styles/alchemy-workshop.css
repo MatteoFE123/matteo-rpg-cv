@@ -42,7 +42,7 @@
   font-size: 0.85rem;
 }
 .alchemy-reagent:nth-child(2) {
-  --ink: #1a231d;
+  --ink: #171d18;
   background: #d6643b;
 }
 .alchemy-reagent:nth-child(3) {
@@ -66,7 +66,7 @@
 }
 .alchemy-workshop .skill-group:nth-child(2) {
   background: #d6643b;
-  color: #1a231d;
+  color: #171d18;
 }
 .alchemy-workshop .skill-group:nth-child(3) {
   background: #d9d84f;

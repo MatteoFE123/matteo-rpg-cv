@@ -14,6 +14,9 @@ body:has(.option-hero) .button,
 body:has(.option-hero) .skill-filters button {
   border-radius: 0;
 }
+body:has(.option-hero) .skill-filters button:not([aria-pressed="true"]) {
+  border-color: var(--muted);
+}
 body:has(.option-hero) .preview-notice a {
   display: inline-flex;
   align-items: center;

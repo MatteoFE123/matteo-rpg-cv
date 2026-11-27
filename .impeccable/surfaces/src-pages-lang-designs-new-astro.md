@@ -32,3 +32,15 @@ The six dealt challengers were fused before disposition. Depot blind: declined o
 These raises are implemented in the fieldbook as complete colored leaves, labeled links, a readable foreground, a predictable route and stationary targets. The gallery shows the same-size previews for all five. The native decision board retains the declined hand as compact evidence. The existing Atlas is a quiet return path, not a sixth new proposal.
 
 Write boundary: preview-specific tokens live in their five CSS files and are documented here. DESIGN.md and .impeccable/design.json still govern the approved Atlas and must not be overwritten by an unchosen mock. Captures are screenshots of actual HTML prototypes, not generated imagery or fabricated product screenshots.
+
+## Finish receipt
+
+Disposition: **ship**, limited to the five previews and their comparison gallery. A fresh, read-only general-purpose reviewer substituted for the unavailable Impeccable finish-reviewer. It opened all fifteen required full-document screenshots and three gallery captures, found the five compositions faithful and distinct, and requested no material fixes. This is not approval of a homepage replacement or certification against an absent external quality-bar image.
+
+Verification: Astro check has zero diagnostics across 22 files; formatting passes; the static build produces 29 routes; all 17 browser scenarios pass. Native first-viewport checks cover 1440x900, 390x844 and 320x740 for every world, with the PDF action fully visible. Settled screenshots use real compiled HTML with entrance motion disabled only in disposable capture copies; shipping animations are unchanged.
+
+Motion evidence: each normal filter sequence has eleven frames over 280ms. The reviewer inspected the reported 34/30/34/34/30 start-jump findings as immediate container reflow followed by item relocation in the unchanged shared filter mechanism, not a new material regression. Each reduced-motion sequence records zero duration and zero findings. Native guild disclosures remain immediately readable. Cross-document entrance filmstrips were unavailable; browser tests observe the five focal animations and their reduced-motion fallback. No device-wide smoothness or FPS claim is made.
+
+Local simulated-mobile Lighthouse scores are 100/99/100/100/100 for performance and 100 for accessibility and best practices in every preview. SEO 60 reflects intentional noindex. The single detector run reports fifteen token/type advisories against the incumbent Atlas, with no non-advisory finding; the scoped preview contracts explain that boundary.
+
+Provenance scan: ten shipping preview rasters, zero missing origins. The five new images are equally framed native screenshot crops. The five archived rasters gained origin metadata only; their decoded pixels and dimensions match the previous commit. The approved Atlas system, factual data and canonical components remain unchanged.

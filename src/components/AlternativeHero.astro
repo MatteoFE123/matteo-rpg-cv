@@ -112,4 +112,27 @@ const c = copy[locale];
       </div>
     )
   }
+  {
+    direction.id === "guild-board" && (
+      <>
+        <PreviewIdentity locale={locale} />
+        <div class="quest-wall">
+          {projects.slice(0, 3).map((project) => (
+            <details class="quest-card">
+              <summary>
+                <h2>
+                  {project.name[locale]}
+                  <span>{project.employer}</span>
+                </h2>
+              </summary>
+              <div class="quest-content">
+                <p>{project.description[locale]}</p>
+                <p class="quest-employer">{project.employer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </>
+    )
+  }
 </section>

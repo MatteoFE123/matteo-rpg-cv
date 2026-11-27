@@ -95,6 +95,16 @@ export const alternatives = [
       en: "A three-fold sheet connects skills, employment and projects. Paper, blue and coral without repeating the Atlas map.",
     },
   },
+  {
+    id: "guild-board",
+    specimen: "DL-019",
+    source: "Process Ledger",
+    title: { es: "Tablón del gremio", en: "The guild quest board" },
+    description: {
+      es: "Un tablón nocturno con tres avisos de proyectos que puedes desplegar. Composición nueva, tipografía condensada y acentos ámbar.",
+      en: "A nocturnal board with three expandable project notices. A new composition, condensed type and amber accents.",
+    },
+  },
 ] as const;
 export type AlternativeDirection = (typeof alternatives)[number];
 export function path(value = "") {
