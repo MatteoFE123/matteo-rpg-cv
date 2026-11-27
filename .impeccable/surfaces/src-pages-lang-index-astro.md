@@ -24,3 +24,14 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 Keep the existing route drawing, stationary hover/focus targets and interruption-safe filter/disclosure motion. Preserve all approved facts, safe PDFs, equivalent translations and reduced-motion/no-JavaScript fallbacks. Printable CVs stay static.
 
 The previous gallery and mock links remain available as a noindex design archive. They must no longer claim that selection is pending or occupy the canonical homepage. The production atlas needs no raster illustration; the existing map is functional vector navigation.
+
+## Delivery verification
+
+`npm run check`: 18 files, zero errors/warnings/hints. `npm run format:check` passed.
+`npm run build`: 17 static routes. `npm test`: all 10 installed-Chrome scenarios passed against the production build.
+Native first-viewport checks passed for the complete atlas and download at 1440x900, 390x844 and 320x740. The equivalent English full-page captures were checked at all three widths.
+
+Fresh finish disposition: **ship**, with no material fixes, for six full-page captures and 44 valid native interaction frames. A general-purpose agent substituted for the unavailable specialized finish reviewer; another documented the selected world in `DESIGN.md` and `.impeccable/design.json`. Small documentation-example corrections preserve the actual deployment base and navigation vocabulary.
+
+The single hookless detector returned no findings. Normal filter/project diagnostics include synchronous geometry start-jumps; reviewed paint settles without persistent overlap. Reduced state changes are immediate. These checks do not establish FPS, low-end hardware performance or an absent original QUALITY BAR card.
+The selected, raster-free world now has its review and token-bearing design documentation; the archive is not part of that visual system.

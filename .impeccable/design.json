@@ -1,0 +1,387 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-27T20:10:29.6244112+01:00",
+  "title": "Design System: Atlas del artífice",
+  "extensions": {
+    "colorMeta": {
+      "stone-ground": {
+        "role": "neutral",
+        "displayName": "Stone Ground",
+        "tonalRamp": [
+          "oklch(15% 0.0053 91.60)",
+          "oklch(27% 0.0137 91.60)",
+          "oklch(38% 0.0189 91.60)",
+          "oklch(50% 0.0210 91.60)",
+          "oklch(62% 0.0210 91.60)",
+          "oklch(73% 0.0189 91.60)",
+          "oklch(84% 0.0126 91.60)",
+          "oklch(95% 0.0042 91.60)"
+        ]
+      },
+      "stone-paper": {
+        "role": "neutral",
+        "displayName": "Stone Paper",
+        "tonalRamp": [
+          "oklch(15% 0.0049 90.55)",
+          "oklch(27% 0.0126 90.55)",
+          "oklch(38% 0.0175 90.55)",
+          "oklch(50% 0.0195 90.55)",
+          "oklch(62% 0.0195 90.55)",
+          "oklch(73% 0.0175 90.55)",
+          "oklch(84% 0.0117 90.55)",
+          "oklch(95% 0.0039 90.55)"
+        ]
+      },
+      "forest-ink": {
+        "role": "primary",
+        "displayName": "Forest Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0126 168.70)",
+          "oklch(27% 0.0327 168.70)",
+          "oklch(38% 0.0453 168.70)",
+          "oklch(50% 0.0503 168.70)",
+          "oklch(62% 0.0503 168.70)",
+          "oklch(73% 0.0453 168.70)",
+          "oklch(84% 0.0302 168.70)",
+          "oklch(95% 0.0101 168.70)"
+        ]
+      },
+      "forest-secondary": {
+        "role": "primary",
+        "displayName": "Forest Secondary",
+        "tonalRamp": [
+          "oklch(15% 0.0112 165.05)",
+          "oklch(27% 0.0290 165.05)",
+          "oklch(38% 0.0402 165.05)",
+          "oklch(50% 0.0447 165.05)",
+          "oklch(62% 0.0447 165.05)",
+          "oklch(73% 0.0402 165.05)",
+          "oklch(84% 0.0268 165.05)",
+          "oklch(95% 0.0089 165.05)"
+        ]
+      },
+      "forest-field": {
+        "role": "primary",
+        "displayName": "Forest Field",
+        "tonalRamp": [
+          "oklch(15% 0.0181 167.24)",
+          "oklch(27% 0.0469 167.24)",
+          "oklch(38% 0.0650 167.24)",
+          "oklch(50% 0.0722 167.24)",
+          "oklch(62% 0.0722 167.24)",
+          "oklch(73% 0.0650 167.24)",
+          "oklch(84% 0.0433 167.24)",
+          "oklch(95% 0.0144 167.24)"
+        ]
+      },
+      "on-forest": {
+        "role": "neutral",
+        "displayName": "On Forest",
+        "tonalRamp": [
+          "oklch(15% 0.0023 99.98)",
+          "oklch(27% 0.0060 99.98)",
+          "oklch(38% 0.0084 99.98)",
+          "oklch(50% 0.0093 99.98)",
+          "oklch(62% 0.0093 99.98)",
+          "oklch(73% 0.0084 99.98)",
+          "oklch(84% 0.0056 99.98)",
+          "oklch(95% 0.0019 99.98)"
+        ]
+      },
+      "stone-rule": {
+        "role": "neutral",
+        "displayName": "Stone Rule",
+        "tonalRamp": [
+          "oklch(15% 0.0079 137.41)",
+          "oklch(27% 0.0204 137.41)",
+          "oklch(38% 0.0283 137.41)",
+          "oklch(50% 0.0314 137.41)",
+          "oklch(62% 0.0314 137.41)",
+          "oklch(73% 0.0283 137.41)",
+          "oklch(84% 0.0188 137.41)",
+          "oklch(95% 0.0063 137.41)"
+        ]
+      },
+      "ochre-destination": {
+        "role": "secondary",
+        "displayName": "Ochre Destination",
+        "tonalRamp": [
+          "oklch(15% 0.0300 85.19)",
+          "oklch(27% 0.0780 85.19)",
+          "oklch(38% 0.1080 85.19)",
+          "oklch(50% 0.1200 85.19)",
+          "oklch(62% 0.1200 85.19)",
+          "oklch(73% 0.1080 85.19)",
+          "oklch(84% 0.0720 85.19)",
+          "oklch(95% 0.0240 85.19)"
+        ]
+      },
+      "destination-ink": {
+        "role": "secondary",
+        "displayName": "Destination Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0081 151.45)",
+          "oklch(27% 0.0209 151.45)",
+          "oklch(38% 0.0290 151.45)",
+          "oklch(50% 0.0322 151.45)",
+          "oklch(62% 0.0322 151.45)",
+          "oklch(73% 0.0290 151.45)",
+          "oklch(84% 0.0193 151.45)",
+          "oklch(95% 0.0064 151.45)"
+        ]
+      },
+      "skills-ink": {
+        "role": "neutral",
+        "displayName": "Skills Ink",
+        "tonalRamp": [
+          "oklch(15% 0.0034 97.44)",
+          "oklch(27% 0.0087 97.44)",
+          "oklch(38% 0.0121 97.44)",
+          "oklch(50% 0.0134 97.44)",
+          "oklch(62% 0.0134 97.44)",
+          "oklch(73% 0.0121 97.44)",
+          "oklch(84% 0.0081 97.44)",
+          "oklch(95% 0.0027 97.44)"
+        ]
+      },
+      "skills-secondary": {
+        "role": "neutral",
+        "displayName": "Skills Secondary",
+        "tonalRamp": [
+          "oklch(15% 0.0051 138.44)",
+          "oklch(27% 0.0133 138.44)",
+          "oklch(38% 0.0184 138.44)",
+          "oklch(50% 0.0205 138.44)",
+          "oklch(62% 0.0205 138.44)",
+          "oklch(73% 0.0184 138.44)",
+          "oklch(84% 0.0123 138.44)",
+          "oklch(95% 0.0041 138.44)"
+        ]
+      },
+      "on-ochre": {
+        "role": "secondary",
+        "displayName": "On Ochre",
+        "tonalRamp": [
+          "oklch(15% 0.0083 152.83)",
+          "oklch(27% 0.0215 152.83)",
+          "oklch(38% 0.0298 152.83)",
+          "oklch(50% 0.0331 152.83)",
+          "oklch(62% 0.0331 152.83)",
+          "oklch(73% 0.0298 152.83)",
+          "oklch(84% 0.0199 152.83)",
+          "oklch(95% 0.0066 152.83)"
+        ]
+      },
+      "skills-paper": {
+        "role": "neutral",
+        "displayName": "Skills Paper",
+        "tonalRamp": [
+          "oklch(15% 0.0132 168.47)",
+          "oklch(27% 0.0344 168.47)",
+          "oklch(38% 0.0476 168.47)",
+          "oklch(50% 0.0529 168.47)",
+          "oklch(62% 0.0529 168.47)",
+          "oklch(73% 0.0476 168.47)",
+          "oklch(84% 0.0317 168.47)",
+          "oklch(95% 0.0106 168.47)"
+        ]
+      },
+      "skills-rule": {
+        "role": "neutral",
+        "displayName": "Skills Rule",
+        "tonalRamp": [
+          "oklch(15% 0.0095 163.44)",
+          "oklch(27% 0.0247 163.44)",
+          "oklch(38% 0.0342 163.44)",
+          "oklch(50% 0.0380 163.44)",
+          "oklch(62% 0.0380 163.44)",
+          "oklch(73% 0.0342 163.44)",
+          "oklch(84% 0.0228 163.44)",
+          "oklch(95% 0.0076 163.44)"
+        ]
+      },
+      "education-ground": {
+        "role": "neutral",
+        "displayName": "Education Ground",
+        "tonalRamp": [
+          "oklch(15% 0.0069 93.12)",
+          "oklch(27% 0.0179 93.12)",
+          "oklch(38% 0.0247 93.12)",
+          "oklch(50% 0.0275 93.12)",
+          "oklch(62% 0.0275 93.12)",
+          "oklch(73% 0.0247 93.12)",
+          "oklch(84% 0.0165 93.12)",
+          "oklch(95% 0.0055 93.12)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Professional Identity",
+        "purpose": "The existing profile heading; balanced, fluid Manrope."
+      },
+      "headline": {
+        "displayName": "Reading Section",
+        "purpose": "Major section headings, with smaller supporting subtitles."
+      },
+      "title": {
+        "displayName": "Group and Record Title",
+        "purpose": "Skills, employers and education item headings."
+      },
+      "body": {
+        "displayName": "Professional Record",
+        "purpose": "Readable prose with a maximum 70ch measure."
+      },
+      "label": {
+        "displayName": "Action Label",
+        "purpose": "Primary PDF and LinkedIn actions."
+      }
+    },
+    "motion": [
+      {
+        "name": "atlas-ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Shared easing for bounded atlas and client layout motion."
+      },
+      {
+        "name": "route-draw",
+        "value": "750ms",
+        "purpose": "One route drawing, only with no reduced-motion preference."
+      },
+      {
+        "name": "route-progress",
+        "value": "420ms",
+        "purpose": "Destination hover/focus changes normalized stroke offsets to 0.85, 0.45 or 0; reduced motion changes them immediately."
+      },
+      {
+        "name": "route-title",
+        "value": "220ms",
+        "purpose": "Only the title moves up 2px; target geometry remains stationary."
+      },
+      {
+        "name": "layout-change",
+        "value": "280ms",
+        "purpose": "Immediate filter state and count update with group FLIP; also disclosure opening and layout changes."
+      },
+      {
+        "name": "disclosure-close",
+        "value": "150ms",
+        "purpose": "Fade and 3px upward content movement before closing; reversals use current opacity and clipping."
+      },
+      {
+        "name": "disclosure-settle",
+        "value": "110ms",
+        "purpose": "Following layout settles after a completed close."
+      },
+      {
+        "name": "action-feedback",
+        "value": "160ms ease-out",
+        "purpose": "Brightness and press feedback, only without reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone-stack",
+        "value": "767px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Flat anchor for the public-safe PDF or LinkedIn; source hover, press and focus states.",
+      "html": "<a class=\"ds-button\" href=\"/matteo-rpg-cv/cv/matteo-fecci-es.pdf\" download>Descargar CV</a>",
+      "css": ".ds-button {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 46px;\n  padding: 0.7rem 1.2rem;\n  background: var(--accent, #23604b);\n  color: var(--on-accent, #faf9f2);\n  border: 1px solid transparent;\n  border-radius: 4px;\n  font: 700 0.9rem/1.65 Manrope, sans-serif;\n  text-decoration: none;\n  white-space: nowrap;\n}\n.ds-button:hover {\n  filter: brightness(0.9);\n}\n.ds-button:active {\n  transform: translateY(1px);\n}\n.ds-button:focus-visible {\n  outline: 3px solid var(--accent, #23604b);\n  outline-offset: 5px;\n}\n@media (prefers-reduced-motion: no-preference) {\n  .ds-button {\n    transition: transform 160ms ease-out, filter 160ms ease-out;\n  }\n}"
+    },
+    {
+      "name": "Skill Filter",
+      "kind": "button",
+      "refersTo": "skill-filter",
+      "description": "Unselected filter shown in the source's complete light-on-green skills scope.",
+      "html": "<div class=\"ds-skills\"><button class=\"ds-filter\" type=\"button\" aria-pressed=\"false\">Habilidades</button></div>",
+      "css": ".ds-skills {\n  --ink: #f3f1e7;\n  --muted: #d8e2d5;\n  --accent: #e6b74a;\n  --on-accent: #233528;\n  --paper: #355e4f;\n  --rule: #749082;\n  background: #23604b;\n  color: var(--ink);\n  font: 400 16px/1.65 Manrope, sans-serif;\n}\n.ds-filter {\n  min-height: 44px;\n  padding: 0.6rem 0.85rem;\n  font: inherit;\n  font-size: 0.85rem;\n  color: var(--ink);\n  background: transparent;\n  border: 1px solid var(--rule);\n  border-radius: 4px;\n  cursor: pointer;\n}\n.ds-filter:hover {\n  border-color: var(--accent);\n}\n.ds-filter:focus-visible {\n  outline: 3px solid var(--accent);\n  outline-offset: 5px;\n}\n.ds-filter[aria-pressed=\"true\"] {\n  background: var(--accent);\n  color: var(--on-accent);\n  border-color: var(--accent);\n}"
+    },
+    {
+      "name": "Selected Skill Filter",
+      "kind": "button",
+      "refersTo": "skill-filter-selected",
+      "description": "Pressed filter uses ochre and its distinct skills foreground; selection is not a proficiency score.",
+      "html": "<div class=\"ds-skills\"><button class=\"ds-filter\" type=\"button\" aria-pressed=\"true\">Habilidades</button></div>",
+      "css": ".ds-skills {\n  --ink: #f3f1e7;\n  --muted: #d8e2d5;\n  --accent: #e6b74a;\n  --on-accent: #233528;\n  --paper: #355e4f;\n  --rule: #749082;\n  background: #23604b;\n  color: var(--ink);\n  font: 400 16px/1.65 Manrope, sans-serif;\n}\n.ds-filter {\n  min-height: 44px;\n  padding: 0.6rem 0.85rem;\n  font: inherit;\n  font-size: 0.85rem;\n  color: var(--ink);\n  background: transparent;\n  border: 1px solid var(--rule);\n  border-radius: 4px;\n  cursor: pointer;\n}\n.ds-filter:hover {\n  border-color: var(--accent);\n}\n.ds-filter:focus-visible {\n  outline: 3px solid var(--accent);\n  outline-offset: 5px;\n}\n.ds-filter[aria-pressed=\"true\"] {\n  background: var(--accent);\n  color: var(--on-accent);\n  border-color: var(--accent);\n}"
+    },
+    {
+      "name": "Skill Tag",
+      "kind": "chip",
+      "refersTo": "skill-tag",
+      "description": "Noninteractive rectangular skill label. Sample text illustrates the primitive, not a new CV claim.",
+      "html": "<div class=\"ds-skills\"><ul class=\"ds-skill-tags\"><li>Habilidad</li></ul></div>",
+      "css": ".ds-skills {\n  --ink: #f3f1e7;\n  --muted: #d8e2d5;\n  --accent: #e6b74a;\n  --on-accent: #233528;\n  --paper: #355e4f;\n  --rule: #749082;\n  background: #23604b;\n  color: var(--ink);\n  font: 400 16px/1.65 Manrope, sans-serif;\n}\n.ds-skill-tags {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  display: flex;\n  flex-wrap: wrap;\n  gap: 0.5rem;\n}\n.ds-skill-tags li {\n  padding: 0.3rem 0.65rem;\n  background: var(--paper);\n  font-size: 0.9rem;\n}"
+    },
+    {
+      "name": "Language Navigation",
+      "kind": "nav",
+      "refersTo": "language-navigation",
+      "description": "Compact atlas wordmark and equivalent ES/EN targets; current language remains underlined.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-wordmark\" href=\"/matteo-rpg-cv/es/\">Atlas del artífice</a><nav class=\"ds-language-nav\" aria-label=\"Idioma\"><a href=\"/matteo-rpg-cv/es/\" lang=\"es\" aria-current=\"page\">ES</a><a href=\"/matteo-rpg-cv/en/\" lang=\"en\">EN</a></nav></header>",
+      "css": ".ds-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 1.25rem;\n  min-height: 64px;\n  padding: 0.5rem 3vw;\n  border-bottom: 1px solid var(--rule, #97a592);\n  color: var(--ink, #183f32);\n  font: 400 0.8rem/1.65 Manrope, sans-serif;\n}\n.ds-wordmark {\n  color: inherit;\n  font-weight: 700;\n  text-decoration: none;\n}\n.ds-language-nav {\n  display: flex;\n  gap: 0.25rem;\n  flex-shrink: 0;\n}\n.ds-language-nav a {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 44px;\n  min-height: 44px;\n  color: inherit;\n  text-underline-offset: 0.25em;\n}\n.ds-header a:hover {\n  text-decoration-thickness: 2px;\n}\n.ds-language-nav [aria-current=\"page\"] {\n  font-weight: 700;\n  text-decoration-thickness: 3px;\n}\n.ds-header a:focus-visible {\n  outline: 3px solid var(--accent, #23604b);\n  outline-offset: 5px;\n}\n@media (max-width: 767px) {\n  .ds-header {\n    padding-inline: 1rem;\n    gap: 0.75rem;\n  }\n}"
+    },
+    {
+      "name": "Project Disclosure",
+      "kind": "custom",
+      "refersTo": "project-disclosure",
+      "description": "Native disclosure fallback with source typography, border and focus. Neutral sample text is not a project claim; production WAAPI behavior is documented separately.",
+      "html": "<details class=\"ds-disclosure\"><summary>Proyecto <span>Organización</span></summary><div class=\"ds-project-body\"><p>Detalles del proyecto.</p></div></details>",
+      "css": ".ds-disclosure {\n  border-bottom: 1px solid var(--rule, #97a592);\n  color: var(--ink, #183f32);\n  font: 400 16px/1.65 Manrope, sans-serif;\n}\n.ds-disclosure summary {\n  padding: 1.25rem 0.25rem;\n  cursor: pointer;\n  font-size: 1.12rem;\n  font-weight: 600;\n}\n.ds-disclosure summary:hover {\n  cursor: pointer;\n}\n.ds-disclosure summary:focus-visible {\n  outline: 3px solid var(--accent, #23604b);\n  outline-offset: 5px;\n}\n.ds-disclosure summary > span {\n  display: inline-block;\n  margin-left: 0.75rem;\n  font-size: 0.8rem;\n  font-weight: 400;\n  color: var(--muted, #355547);\n}\n.ds-project-body {\n  padding: 0.5rem 1.25rem 1.75rem;\n}\n.ds-project-body p {\n  margin: 0;\n  max-width: 70ch;\n}\n@media (max-width: 767px) {\n  .ds-disclosure summary > span {\n    display: block;\n    margin: 0.25rem 0 0 1.1rem;\n  }\n}"
+    },
+    {
+      "name": "Atlas Route Navigation",
+      "kind": "nav",
+      "refersTo": "route-destination",
+      "description": "The source's functional vector map and stationary destination anchors; no raster illustration or runtime dependency.",
+      "html": "<nav class=\"ds-route-map\" aria-label=\"Mapa de exploración del CV\"><svg viewBox=\"0 0 600 380\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path class=\"ds-land\" d=\"M0 50 C80 0 150 75 230 30 C335 -20 390 75 480 35 C580 0 620 95 600 210 C540 300 470 250 430 340 C370 405 250 295 170 345 C60 385 -25 245 0 50Z\"/><path class=\"ds-route\" pathLength=\"1\" d=\"M75 285 C120 200 235 265 295 175 S440 70 535 100\"/><path class=\"ds-route-progress\" pathLength=\"1\" d=\"M75 285 C120 200 235 265 295 175 S440 70 535 100\"/></svg><a class=\"ds-route-stop ds-stop-skills\" href=\"#skills\"><span>Grimorio</span>Competencias</a><a class=\"ds-route-stop ds-stop-career\" href=\"#career\"><span>Crónica</span>Trayectoria</a><a class=\"ds-route-stop ds-stop-projects\" href=\"#projects\"><span>Misiones</span>Proyectos</a></nav>",
+      "css": ".ds-route-map {\n  position: relative;\n  min-height: 400px;\n  font: 400 16px/1.65 Manrope, sans-serif;\n}\n.ds-route-map svg {\n  position: absolute;\n  inset: 0;\n  width: 100%;\n  height: 100%;\n}\n.ds-land {\n  fill: #23604b;\n}\n.ds-route {\n  stroke: #d9d4c5;\n  fill: none;\n  stroke-width: 9;\n}\n.ds-route-progress {\n  fill: none;\n  stroke: #e6b74a;\n  stroke-width: 4;\n  stroke-linecap: round;\n  stroke-dasharray: 1;\n  stroke-dashoffset: 1;\n}\n.ds-route-map:has(.ds-stop-skills:is(:hover, :focus-visible)) .ds-route-progress {\n  stroke-dashoffset: 0.85;\n}\n.ds-route-map:has(.ds-stop-career:is(:hover, :focus-visible)) .ds-route-progress {\n  stroke-dashoffset: 0.45;\n}\n.ds-route-map:has(.ds-stop-projects:is(:hover, :focus-visible)) .ds-route-progress {\n  stroke-dashoffset: 0;\n}\n.ds-route-stop {\n  position: absolute;\n  display: flex;\n  flex-direction: column;\n  min-width: 116px;\n  padding: 0.65rem 0.9rem;\n  background: #e6b74a;\n  color: #243528;\n  font-size: 0.75rem;\n  text-align: center;\n  text-decoration: none;\n  border-radius: 4px;\n}\n.ds-route-stop span {\n  font-weight: 700;\n  font-size: 1rem;\n}\n.ds-route-stop:focus-visible {\n  outline: 3px solid #e6b74a;\n  outline-offset: 5px;\n}\n.ds-stop-skills {\n  left: 1%;\n  bottom: 11%;\n}\n.ds-stop-career {\n  left: 35%;\n  top: 34%;\n}\n.ds-stop-projects {\n  right: 0;\n  top: 12%;\n}\n@media (prefers-reduced-motion: no-preference) {\n  .ds-route {\n    stroke-dasharray: 1;\n    animation: ds-atlas-route 750ms cubic-bezier(0.16, 1, 0.3, 1);\n  }\n  .ds-route-progress {\n    transition: stroke-dashoffset 420ms cubic-bezier(0.16, 1, 0.3, 1);\n  }\n  .ds-route-stop span {\n    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);\n  }\n  .ds-route-stop:is(:hover, :focus-visible) span {\n    transform: translateY(-2px);\n  }\n  @keyframes ds-atlas-route {\n    from { stroke-dashoffset: 1; }\n    to { stroke-dashoffset: 0; }\n  }\n}\n@media (max-width: 767px) {\n  .ds-route-map {\n    min-height: 290px;\n  }\n  .ds-route-stop {\n    min-width: 98px;\n    padding: 0.5rem;\n  }\n  .ds-route-stop span {\n    font-size: 0.9rem;\n  }\n  .ds-stop-career {\n    left: 33%;\n  }\n}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Atlas del artífice",
+    "overview": "A stone-ground atlas gives real AI engineering a tabletop-fantasy lens without disguising the professional record. Forest-green fields and ochre destinations make exploration legible; compact Manrope, ruled sections and bounded controls keep the work readable.\n\nThe world is flat, functional and code-led: vector geometry is navigation, not a raster picture. Warm tonal surfaces establish hierarchy; motion draws a route or explains a state change rather than staging repeated entrances.",
+    "keyCharacteristics": [
+      "Warm stone surfaces with forest-green ink and fields.",
+      "Ochre destinations and selected controls.",
+      "One self-hosted face with clear scale and weight changes.",
+      "Flat geometry, stationary targets and bounded motion."
+    ],
+    "rules": [
+      {
+        "name": "The Surface Scope Rule",
+        "body": "On forest-green skills surfaces, switch foreground, secondary text, accent, on-accent, paper and rules together; never inherit stone-surface ink there.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Face Rule",
+        "body": "Manrope carries every production type role; archive-only font faces are not part of this atlas.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Field Rule",
+        "body": "Separate content with tonal surfaces, whitespace and rules, not lifted or shadowed cards.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do pair each surface with its own foreground and rule scope.",
+      "Do retain professional identity and equivalent ES/EN hierarchy.",
+      "Do keep reading content flat, with tonal separation and ruled lists.",
+      "Do preserve keyboard focus, native disclosure fallback and immediate reduced-motion state changes.",
+      "Do use crisp vector navigation and bounded, interruption-safe transitions."
+    ],
+    "donts": [
+      "Don't import archive palettes, display fonts or animation grammars into production.",
+      "Don't replace factual content with invented proficiency graphics or game gates.",
+      "Don't move destination hit areas during interaction or hide evidence behind motion.",
+      "Don't add decorative shadows, glass, looping entrances or scroll-driven effects."
+    ]
+  }
+}
