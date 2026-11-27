@@ -1,0 +1,107 @@
+.civic-garden {
+  --ground: #d9d4c5;
+  --paper: #eae5d7;
+  --ink: #183f32;
+  --muted: #355547;
+  --accent: #23604b;
+  --rule: #97a592;
+}
+.atlas {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 2rem;
+  align-items: center;
+  min-height: 430px;
+}
+.atlas-profile {
+  position: relative;
+  z-index: 1;
+}
+.route-map {
+  position: relative;
+  min-height: 400px;
+}
+.route-map svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.route-map .land {
+  fill: #23604b;
+}
+.route-map .route {
+  stroke: #d9d4c5;
+  fill: none;
+  stroke-width: 9;
+}
+.route-stop {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  min-width: 116px;
+  padding: 0.65rem 0.9rem;
+  background: #e6b74a;
+  color: #243528;
+  font-size: 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.route-stop span {
+  font-weight: 700;
+  font-size: 1rem;
+}
+.route-stop:focus-visible {
+  outline-color: #e6b74a;
+}
+.stop-skills {
+  left: 1%;
+  bottom: 11%;
+}
+.stop-career {
+  left: 35%;
+  top: 34%;
+}
+.stop-projects {
+  right: 0;
+  top: 12%;
+}
+.skills-section {
+  background: #23604b;
+  color: var(--ink);
+  --ink: #f3f1e7;
+  --muted: #d8e2d5;
+  --accent: #e6b74a;
+  --on-accent: #233528;
+  --paper: #355e4f;
+  --rule: #749082;
+}
+.career-section {
+  padding-left: 10vw;
+}
+.education-section {
+  background: #e6e0cc;
+}
+@media (max-width: 767px) {
+  .atlas {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .route-map {
+    min-height: 290px;
+  }
+  .route-stop {
+    min-width: 98px;
+    padding: 0.5rem;
+  }
+  .route-stop span {
+    font-size: 0.9rem;
+  }
+  .stop-career {
+    left: 33%;
+  }
+  .career-section {
+    padding-left: 1.25rem;
+  }
+}

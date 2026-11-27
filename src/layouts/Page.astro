@@ -1,0 +1,46 @@
+---
+import { path } from "../data/directions";
+import type { Locale } from "../data/cv";
+interface Props {
+  locale: Locale;
+  title: string;
+  theme?: string;
+}
+const { locale, title, theme = "gallery" } = Astro.props;
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta
+      name="description"
+      content={locale === "es"
+        ? "Cinco propuestas independientes para el CV RPG de Matteo Fecci."
+        : "Five independent proposals for Matteo Fecci's RPG CV."}
+    />
+    <title>{title} | Matteo Fecci</title>
+    <link rel="icon" href={path("favicon.svg")} type="image/svg+xml" />
+    <link
+      rel="preload"
+      href={path("fonts/manrope-latin.woff2")}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href={path("styles/core.css")} />
+    {
+      theme !== "gallery" && (
+        <link rel="stylesheet" href={path(`styles/${theme}.css`)} />
+      )
+    }
+  </head>
+  <body class={theme}>
+    <a class="skip-link" href="#main"
+      >{locale === "es" ? "Ir al contenido" : "Skip to content"}</a
+    >
+    <slot />
+  </body>
+</html>

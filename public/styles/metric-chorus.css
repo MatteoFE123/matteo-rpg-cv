@@ -1,0 +1,109 @@
+.metric-chorus {
+  --ground: #151817;
+  --paper: #272c29;
+  --ink: #eef0e9;
+  --muted: #c1c8bf;
+  --accent: #eef0e9;
+  --on-accent: #151817;
+  --rule: #5e6a60;
+  --display: "Barlow Condensed", sans-serif;
+  color-scheme: dark;
+}
+.ink-profile {
+  display: grid;
+  grid-template-columns: 0.95fr 1.2fr;
+  gap: 3rem;
+  align-items: center;
+  min-height: 480px;
+}
+.ink-heading h1 {
+  max-width: 8ch;
+}
+.employment-field {
+  min-width: 0;
+}
+.duration-columns {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.7rem;
+  align-items: end;
+}
+.duration-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  text-decoration: none;
+  gap: 0.5rem;
+  min-width: 0;
+}
+.duration-value {
+  font-family: monospace;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+.duration-bar {
+  display: block;
+  height: calc(var(--months) / 33 * 235px);
+  min-height: 8px;
+  background: #eef0e9;
+}
+.duration-name {
+  font-size: 0.68rem;
+  line-height: 1.35;
+  min-height: 4.3rem;
+  overflow-wrap: anywhere;
+}
+.employment-field figcaption {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 1rem;
+}
+.skill-filters button,
+.button {
+  border-radius: 0;
+}
+.skill-group li {
+  background: transparent;
+  border-bottom: 1px solid var(--rule);
+  padding-inline: 0;
+  margin-right: 0.5rem;
+}
+.career-meta p {
+  font-family: monospace;
+  font-variant-numeric: tabular-nums;
+}
+.career-list > li {
+  grid-template-columns: 0.9fr 1.5fr;
+}
+.project-list summary {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.5rem;
+}
+.project-list summary > span {
+  font-family: Manrope, sans-serif;
+}
+.education-list {
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 767px) {
+  .ink-profile {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .ink-heading h1 {
+    max-width: none;
+  }
+  .duration-columns {
+    gap: 0.5rem;
+  }
+  .duration-bar {
+    height: calc(var(--months) / 33 * 170px);
+  }
+  .duration-name {
+    font-size: 0.6rem;
+  }
+  .career-list > li,
+  .education-list {
+    grid-template-columns: 1fr;
+  }
+}

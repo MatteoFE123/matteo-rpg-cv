@@ -1,0 +1,193 @@
+---
+import { copy, experience, identity, months, period } from "../data/cv";
+import type { Locale } from "../data/cv";
+import type { Direction } from "../data/directions";
+import { path } from "../data/directions";
+interface Props {
+  locale: Locale;
+  direction: Direction;
+}
+const { locale, direction } = Astro.props;
+const c = copy[locale];
+const pdf = path(`cv/matteo-fecci-${locale}.pdf`);
+---
+
+<section class="hero" aria-labelledby="profile-title">
+  {
+    direction.id === "civic-garden" && (
+      <div class="atlas">
+        <div class="atlas-profile">
+          <h1 id="profile-title">{identity.name}</h1>
+          <p class="professional-role">{identity.role}</p>
+          <p class="introduction">{identity.introduction[locale]}</p>
+          <a class="button primary-action" href={pdf} download>
+            {c.download}
+          </a>
+        </div>
+        <nav
+          class="route-map"
+          aria-label={
+            locale === "es"
+              ? "Mapa de exploración del CV"
+              : "CV exploration map"
+          }
+        >
+          <svg
+            viewBox="0 0 600 380"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path
+              class="land"
+              d="M0 50 C80 0 150 75 230 30 C335 -20 390 75 480 35 C580 0 620 95 600 210 C540 300 470 250 430 340 C370 405 250 295 170 345 C60 385 -25 245 0 50Z"
+            />
+            <path
+              class="route"
+              d="M75 285 C120 200 235 265 295 175 S440 70 535 100"
+            />
+          </svg>
+          <a class="route-stop stop-skills" href="#skills">
+            <span>{c.grimoire}</span>
+            {c.skills}
+          </a>
+          <a class="route-stop stop-career" href="#career">
+            <span>{c.chronicle}</span>
+            {c.trajectory}
+          </a>
+          <a class="route-stop stop-projects" href="#projects">
+            <span>{c.quests}</span>
+            {c.projects}
+          </a>
+        </nav>
+      </div>
+    )
+  }
+  {
+    direction.id === "archive-room" && (
+      <div class="dossier">
+        <div class="folder-spine">
+          <p>{c.archetype}</p>
+          <p>
+            TEKsystems
+            <>
+              <br />
+              <strong>{c.current}</strong>
+            </>
+          </p>
+          <a href="#projects">{c.projects}</a>
+        </div>
+        <div class="archive-letter">
+          <h1 id="profile-title">{identity.name}</h1>
+          <p class="professional-role">{identity.role}</p>
+          <p class="introduction">{identity.introduction[locale]}</p>
+          <a class="button primary-action" href={pdf} download>
+            {c.download}
+          </a>
+          <p class="signature">{identity.name}</p>
+        </div>
+      </div>
+    )
+  }
+  {
+    direction.id === "signal-index" && (
+      <div class="codex">
+        <div class="identity-code" aria-hidden="true">
+          MF
+        </div>
+        <div class="codex-profile">
+          <h1 id="profile-title">{identity.name}</h1>
+          <p class="professional-role">{identity.role}</p>
+          <p class="introduction">{identity.introduction[locale]}</p>
+          <a class="button primary-action" href={pdf} download>
+            {c.download}
+          </a>
+        </div>
+        <nav
+          class="codex-index"
+          aria-label={locale === "es" ? "Índice del códice" : "Codex index"}
+        >
+          <a href="#skills">
+            {c.grimoire}
+            <span>{c.skills}</span>
+          </a>
+          <a href="#career">
+            {c.chronicle}
+            <span>{c.trajectory}</span>
+          </a>
+          <a href="#projects">
+            {c.quests}
+            <span>{c.projects}</span>
+          </a>
+        </nav>
+      </div>
+    )
+  }
+  {
+    direction.id === "process-ledger" && (
+      <div class="ledger-profile">
+        <div class="ledger-heading">
+          <h1 id="profile-title">{identity.name}</h1>
+          <p class="professional-role">{identity.role}</p>
+          <p class="introduction">{identity.introduction[locale]}</p>
+          <a class="button primary-action" href={pdf} download>
+            {c.download}
+          </a>
+        </div>
+        <div class="ledger-current">
+          <h2>
+            {c.chronicle} <span>{c.trajectory}</span>
+          </h2>
+          {experience.slice(0, 2).map((job) => (
+            <a class="ledger-row" href="#career">
+              <strong>{job.employer}</strong>
+              <span>{job.role}</span>
+              <span>{period(job.start, job.end, locale)}</span>
+            </a>
+          ))}
+          <a class="ledger-full" href="#career">
+            {c.trajectory}
+          </a>
+        </div>
+      </div>
+    )
+  }
+  {
+    direction.id === "metric-chorus" && (
+      <div class="ink-profile">
+        <div class="ink-heading">
+          <h1 id="profile-title">{identity.name}</h1>
+          <p class="professional-role">{identity.role}</p>
+          <p class="introduction">{identity.introduction[locale]}</p>
+          <a class="button primary-action" href={pdf} download>
+            {c.download}
+          </a>
+        </div>
+        <figure class="employment-field">
+          <div class="duration-columns">
+            {experience.map((job) => (
+              <a
+                href="#career"
+                class="duration-column"
+                aria-label={`${job.employer}: ${months(job.start, job.end)} ${locale === "es" ? "meses aproximados" : "approximate months"}`}
+              >
+                <span class="duration-value">{months(job.start, job.end)}</span>
+                <span
+                  class="duration-bar"
+                  style={`--months: ${months(job.start, job.end)}`}
+                  aria-hidden="true"
+                />
+                <span class="duration-name">{job.employer}</span>
+              </a>
+            ))}
+          </div>
+          <figcaption>
+            {c.duration}{" "}
+            {locale === "es"
+              ? "Referencia: noviembre de 2026."
+              : "As of November 2026."}
+          </figcaption>
+        </figure>
+      </div>
+    )
+  }
+</section>

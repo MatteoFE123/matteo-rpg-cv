@@ -1,0 +1,111 @@
+.archive-room {
+  --ground: #ded9ce;
+  --paper: #f2eee4;
+  --ink: #343933;
+  --muted: #575b52;
+  --accent: #9b4c3e;
+  --rule: #aaa99a;
+  --display: Grenze, serif;
+}
+.dossier {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  max-width: 1050px;
+  margin: 1rem auto 0;
+  min-height: 490px;
+}
+.folder-spine {
+  background: #6f8490;
+  color: #142b34;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  border-radius: 14px 0 0 0;
+}
+.folder-spine a {
+  font-weight: 700;
+}
+.archive-letter {
+  padding: 2.75rem 3.5rem;
+  background: #f2eee4;
+  transform: rotate(-1deg);
+  transform-origin: top left;
+  border: 1px solid #aaa99a;
+}
+.archive-letter h1 {
+  max-width: 8ch;
+  font-size: clamp(3.4rem, 6vw, 5.8rem);
+}
+.signature {
+  margin-top: 2rem;
+  font-family: Grenze, serif;
+  font-size: 1.5rem;
+  color: #9b4c3e;
+}
+.profile-section {
+  background: #e9e3d6;
+}
+.skill-group {
+  padding-bottom: 1rem;
+}
+.skill-group li {
+  background: transparent;
+  border: 1px solid var(--rule);
+}
+.career-list > li {
+  grid-template-columns: 1.1fr 2fr;
+}
+.career-meta {
+  color: #455d6a;
+}
+.projects-section {
+  background: #f2eee4;
+}
+.project-list details {
+  border-color: #b9b7a8;
+}
+.education-list {
+  grid-template-columns: 1fr;
+}
+.education-list li {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 3rem;
+}
+.education-list li > p:last-child {
+  grid-column: 2;
+}
+@media (max-width: 767px) {
+  .dossier {
+    grid-template-columns: 1fr;
+    margin-top: 0;
+  }
+  .folder-spine {
+    flex-direction: row;
+    padding: 1rem;
+    font-size: 0.8rem;
+    border-radius: 12px 12px 0 0;
+    align-items: center;
+    gap: 1rem;
+  }
+  .folder-spine > p:nth-child(2) {
+    display: none;
+  }
+  .archive-letter {
+    padding: 2rem 1.25rem;
+    transform: none;
+  }
+  .archive-letter h1 {
+    font-size: 3.8rem;
+  }
+  .career-list > li,
+  .education-list li {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .education-list li > p:last-child {
+    grid-column: 1;
+  }
+}

@@ -1,0 +1,165 @@
+---
+import {
+  certifications,
+  copy,
+  education,
+  experience,
+  identity,
+  period,
+  projects,
+  skillGroups,
+} from "../data/cv";
+import type { Locale } from "../data/cv";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const c = copy[locale];
+---
+
+<section class="profile-section reading-section" aria-labelledby="about-title">
+  <h2 id="about-title">{c.profile}</h2>
+  <p>{identity.summary[locale]}</p>
+</section>
+<section
+  id="skills"
+  class="skills-section reading-section"
+  aria-labelledby="skills-title"
+>
+  <h2 id="skills-title">{c.grimoire} <span>{c.skills}</span></h2>
+  <div class="skill-filters" role="group" aria-label={c.skillFilter}>
+    <button type="button" data-filter="all" aria-pressed="true">{c.all}</button>
+    {
+      skillGroups.map((group) => (
+        <button type="button" data-filter={group.id} aria-pressed="false">
+          {group.name[locale]}
+        </button>
+      ))
+    }
+  </div>
+  <div class="skill-groups">
+    {
+      skillGroups.map((group) => (
+        <section class="skill-group" data-skill-group={group.id}>
+          <h3>{group.name[locale]}</h3>
+          <ul>
+            {group.skills.map((skill) => (
+              <li>{skill}</li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+  </div>
+  <p class="filter-result" aria-live="polite">
+    <span data-skill-count
+      >{
+        skillGroups.reduce((count, group) => count + group.skills.length, 0)
+      }</span
+    >
+    {c.skillsShown}
+  </p>
+  <p class="source-note">{c.narrative}</p>
+</section>
+<section
+  id="career"
+  class="career-section reading-section"
+  aria-labelledby="career-title"
+>
+  <h2 id="career-title">{c.chronicle} <span>{c.trajectory}</span></h2>
+  <ol class="career-list">
+    {
+      experience.map((job) => (
+        <li>
+          <div class="career-meta">
+            <h3>{job.employer}</h3>
+            <p>{period(job.start, job.end, locale)}</p>
+          </div>
+          <div class="career-work">
+            <p class="job-role">{job.role}</p>
+            <p>{job.description[locale]}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</section>
+<section
+  id="projects"
+  class="projects-section reading-section"
+  aria-labelledby="projects-title"
+>
+  <h2 id="projects-title">{c.quests} <span>{c.projects}</span></h2>
+  <p class="source-note">{c.evidence}</p>
+  <div class="project-list">
+    {
+      projects.map((project) => (
+        <details>
+          <summary>
+            {project.name[locale]} <span>{project.employer}</span>
+          </summary>
+          <div class="project-body">
+            <p>{project.description[locale]}</p>
+            <ul class="project-tags">
+              {project.tags.map((tag) => (
+                <li>{tag}</li>
+              ))}
+            </ul>
+          </div>
+        </details>
+      ))
+    }
+  </div>
+</section>
+<section
+  id="education"
+  class="education-section reading-section"
+  aria-labelledby="education-title"
+>
+  <h2 id="education-title">{c.training} <span>{c.education}</span></h2>
+  <ul class="education-list">
+    {
+      education.map((item) => (
+        <li>
+          <h3>{item.name[locale]}</h3>
+          <p>{item.institution}</p>
+          {item.detail && <p>{item.detail[locale]}</p>}
+        </li>
+      ))
+    }
+  </ul>
+  <h3 class="certification-title">{c.certifications}</h3>
+  <ul class="certifications">
+    {certifications.map((item) => <li>{item}</li>)}
+  </ul>
+</section>
+<footer class="cv-footer">
+  <p>{identity.name}<br />{identity.role}</p>
+  <a
+    class="button"
+    href={identity.linkedin}
+    target="_blank"
+    rel="noopener noreferrer">{c.contact}</a
+  >
+  <p class="source-note">{c.source}</p>
+</footer>
+<script>
+  const filters = document.querySelectorAll<HTMLButtonElement>("[data-filter]");
+  const groups = document.querySelectorAll<HTMLElement>("[data-skill-group]");
+  const count = document.querySelector("[data-skill-count]");
+  for (const button of filters) {
+    button.addEventListener("click", () => {
+      const selected = button.dataset.filter;
+      for (const filter of filters) {
+        filter.setAttribute("aria-pressed", String(filter === button));
+      }
+      let visible = 0;
+      for (const group of groups) {
+        group.hidden =
+          selected !== "all" && group.dataset.skillGroup !== selected;
+        if (!group.hidden) visible += group.querySelectorAll("li").length;
+      }
+      if (count) count.textContent = String(visible);
+    });
+  }
+</script>

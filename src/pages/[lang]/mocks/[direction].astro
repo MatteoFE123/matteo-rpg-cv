@@ -1,0 +1,42 @@
+---
+import Page from "../../../layouts/Page.astro";
+import Hero from "../../../components/Hero.astro";
+import CVSections from "../../../components/CVSections.astro";
+import { copy } from "../../../data/cv";
+import type { Locale } from "../../../data/cv";
+import { directions, mockPath, path } from "../../../data/directions";
+export function getStaticPaths() {
+  return ["es", "en"].flatMap((lang) =>
+    directions.map((direction) => ({
+      params: { lang, direction: direction.id },
+      props: { direction },
+    })),
+  );
+}
+const locale = Astro.params.lang as Locale;
+const { direction } = Astro.props;
+const c = copy[locale];
+---
+
+<Page locale={locale} title={direction.title[locale]} theme={direction.id}>
+  <aside class="preview-notice">
+    <a href={path(`${locale}/`)}>{c.proposals}</a>
+    <span>{direction.title[locale]}</span>
+    <nav aria-label={locale === "es" ? "Idioma" : "Language"}>
+      <a
+        href={mockPath("es", direction.id)}
+        lang="es"
+        aria-current={locale === "es" ? "page" : undefined}>ES</a
+      >
+      <a
+        href={mockPath("en", direction.id)}
+        lang="en"
+        aria-current={locale === "en" ? "page" : undefined}>EN</a
+      >
+    </nav>
+  </aside>
+  <main id="main" class="cv-main">
+    <Hero locale={locale} direction={direction} />
+    <CVSections locale={locale} />
+  </main>
+</Page>

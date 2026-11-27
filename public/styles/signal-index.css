@@ -1,0 +1,105 @@
+.signal-index {
+  --ground: #f0a23b;
+  --paper: #f6b454;
+  --ink: #20231f;
+  --muted: #443719;
+  --accent: #20231f;
+  --on-accent: #f8ca82;
+  --rule: #876224;
+  --display: "Barlow Condensed", sans-serif;
+}
+.codex {
+  display: grid;
+  grid-template-columns: 0.8fr 1.4fr 0.65fr;
+  gap: 2rem;
+  align-items: center;
+  min-height: 455px;
+}
+.identity-code {
+  align-self: center;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: clamp(4rem, 13vw, 6rem);
+  line-height: 1;
+  border-top: 7px solid #20231f;
+  border-bottom: 7px solid #20231f;
+  padding: 2.5rem 0;
+  text-align: center;
+  letter-spacing: -0.04em;
+}
+.codex-profile h1 {
+  max-width: 9ch;
+}
+.codex-index {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.codex-index a {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #876224;
+  font-weight: 700;
+  text-decoration: none;
+}
+.codex-index span {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.reading-section {
+  padding-left: 23vw;
+}
+.skills-section {
+  background: #f8b456;
+}
+.skill-groups {
+  gap: 2.5rem;
+}
+.skill-group li {
+  background: transparent;
+  padding: 0 0.5rem 0 0;
+}
+.career-list > li {
+  grid-template-columns: 1fr 1.6fr;
+  gap: 2rem;
+}
+.education-list {
+  grid-template-columns: 1fr;
+}
+.cv-footer {
+  padding-left: 23vw;
+}
+@media (max-width: 767px) {
+  .codex {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    min-height: 0;
+  }
+  .identity-code {
+    padding: 1rem 0;
+    align-self: start;
+  }
+  .codex-profile {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+  .codex-profile h1 {
+    max-width: none;
+  }
+  .codex-index {
+    grid-column: 2;
+    grid-row: 1;
+    gap: 0.25rem;
+  }
+  .codex-index a {
+    padding: 0.3rem 0;
+    font-size: 0.85rem;
+  }
+  .reading-section,
+  .cv-footer {
+    padding-left: 1.25rem;
+  }
+  .career-list > li {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}

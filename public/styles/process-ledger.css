@@ -1,0 +1,94 @@
+.process-ledger {
+  --ground: #e4e7df;
+  --paper: #d4ddd3;
+  --ink: #26312e;
+  --muted: #4e6259;
+  --accent: #26312e;
+  --on-accent: #f0f3e9;
+  --rule: #93a397;
+  --display: "Barlow Condensed", sans-serif;
+}
+.ledger-profile {
+  min-height: 480px;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  align-items: center;
+  gap: 3rem;
+}
+.ledger-heading h1 {
+  max-width: 8ch;
+}
+.ledger-current {
+  border-top: 5px solid #26312e;
+  padding-top: 1.5rem;
+}
+.ledger-current h2 {
+  margin-bottom: 1.5rem;
+  font-size: 2.3rem;
+}
+.ledger-current h2 span {
+  display: inline;
+  margin-left: 0.75rem;
+  font-size: 0.8rem;
+}
+.ledger-row {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 0.5rem 1rem;
+  padding: 1.25rem 0;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+.ledger-row > span:last-child {
+  grid-column: 2;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+.ledger-full {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.profile-section {
+  background: #d3ddd2;
+}
+.career-list > li {
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+}
+.career-meta h3 {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.projects-section {
+  background: #dce2d7;
+}
+.skill-group li {
+  background: transparent;
+  padding: 0.2rem 0.65rem 0.2rem 0;
+}
+.skill-filters button,
+.button {
+  border-radius: 0;
+}
+@media (max-width: 767px) {
+  .ledger-profile {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .ledger-heading h1 {
+    max-width: none;
+  }
+  .ledger-row {
+    grid-template-columns: 1fr;
+  }
+  .ledger-row > span:last-child {
+    grid-column: 1;
+  }
+  .career-list > li {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
