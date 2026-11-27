@@ -1,0 +1,153 @@
+---
+import {
+  certifications,
+  copy,
+  education,
+  experience,
+  identity,
+  period,
+  projects,
+  skillGroups,
+} from "../../data/cv";
+import type { Locale } from "../../data/cv";
+import { path } from "../../data/directions";
+export function getStaticPaths() {
+  return ["es", "en"].map((lang) => ({ params: { lang } }));
+}
+const locale = Astro.params.lang as Locale;
+const c = copy[locale];
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Matteo Fecci | AI Developer CV</title>
+    <link rel="stylesheet" href={path("styles/core.css")} />
+  </head>
+  <body class="print-cv">
+    <main>
+      <h1>{identity.name}</h1>
+      <p class="cv-role">{identity.role}</p>
+      <p><a href={identity.linkedin}>linkedin.com/in/matteo-fecci</a></p>
+      <section>
+        <h2>{c.profile}</h2>
+        <p>{identity.summary[locale]}</p>
+      </section>
+      <section>
+        <h2>{c.skills}</h2>
+        {
+          skillGroups.map((group) => (
+            <p>
+              <strong>{group.name[locale]}:</strong> {group.skills.join(", ")}
+            </p>
+          ))
+        }
+      </section>
+      <section>
+        <h2>{c.trajectory}</h2>
+        {
+          experience.map((job) => (
+            <article>
+              <h3>
+                {job.employer} / {job.role}
+              </h3>
+              <p class="period">{period(job.start, job.end, locale)}</p>
+              <p>{job.description[locale]}</p>
+            </article>
+          ))
+        }
+      </section>
+      <section>
+        <h2>{c.projects}</h2>
+        {
+          projects.map((project) => (
+            <article>
+              <h3>
+                {project.name[locale]} / {project.employer}
+              </h3>
+              <p>{project.description[locale]}</p>
+            </article>
+          ))
+        }
+      </section>
+      <section>
+        <h2>{c.education}</h2>
+        {
+          education.map((item) => (
+            <article>
+              <h3>{item.name[locale]}</h3>
+              <p>
+                {item.institution}
+                {item.detail ? `. ${item.detail[locale]}` : ""}
+              </p>
+            </article>
+          ))
+        }
+        <h3>{c.certifications}</h3>
+        <p>{certifications.join(" / ")}</p>
+      </section>
+    </main>
+  </body>
+</html>
+<style is:global>
+  @page {
+    size: A4;
+    margin: 13mm 15mm;
+  }
+  .print-cv {
+    background: #fafaf7;
+    color: #252e2a;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .print-cv main {
+    max-width: 760px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+  }
+  .print-cv h1 {
+    font-size: 29px;
+  }
+  .print-cv .cv-role {
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .print-cv h2 {
+    font-size: 15px;
+    margin: 16px 0 7px;
+    letter-spacing: 0;
+    border-bottom: 1px solid #a7b3a9;
+    padding-bottom: 4px;
+  }
+  .print-cv h3 {
+    font-size: 11px;
+    margin-top: 8px;
+  }
+  .print-cv p {
+    max-width: none;
+    margin-top: 3px;
+  }
+  .print-cv .period {
+    color: #49544c;
+    font-size: 10px;
+  }
+  .print-cv article {
+    break-inside: avoid;
+  }
+  @media print {
+    .print-cv {
+      background: #fff;
+    }
+    .print-cv main {
+      padding: 0;
+      margin: 0;
+      max-width: none;
+    }
+    .print-cv a {
+      text-decoration: none;
+    }
+  }
+</style>

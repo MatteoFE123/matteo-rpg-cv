@@ -1,0 +1,9 @@
+package-lock.json
+node_modules
+dist
+.astro
+.impeccable
+public/cv
+public/previews
+test-results
+playwright-report

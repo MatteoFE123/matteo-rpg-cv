@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.astro/
+playwright-report/
+test-results/
+.impeccable/review/
+.impeccable/questions/
+.impeccable/mocks/
+.impeccable/config.local.json
+.env
+.env.*
+!.env.example
+*.log
+*Original*.pdf
+Matteo Fecci - AI Developer CV.pdf
