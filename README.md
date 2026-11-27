@@ -1,7 +1,10 @@
 # Matteo RPG CV
 
-A bilingual, tabletop-fantasy CV for Matteo Fecci. **Visual selection is pending**:
-the first deliverable is five independent, equally presented mocks, not a finished portfolio.
+A bilingual, tabletop-fantasy CV for Matteo Fecci, using the selected
+**Atlas del artífice / Civic Garden** design. The animated map leads to actual skills,
+employment and projects without game gates or invented scores.
+
+Live site: https://matteofe123.github.io/matteo-rpg-cv/
 
 ## Local preview
 
@@ -10,7 +13,9 @@ npm ci
 npm run dev
 ```
 
-Open the address printed by Astro. The index links to all five directions in Spanish and English.
+Open the address printed by Astro. The root and `/es/` show the Spanish atlas; `/en/`
+shows its English equivalent. Previous proposals remain at `/es/designs/` and
+`/en/designs/`, with their original mock URLs preserved as a noindex archive.
 Node 22.23.4 or newer is required; the development dependencies include a project-local runtime
 so npm scripts do not require changing a shared system installation.
 
@@ -37,7 +42,7 @@ if no compatible local Chrome is available.
 | Contact       | LinkedIn; no phone, personal email or contact locality                      |
 | Downloads     | Regenerated public CVs; the private original is never committed             |
 | Education     | UNIR master's degree completed, confirmed by Matteo                         |
-| Visual choice | Five mocks from the fixed random design-lib sample; no default winner       |
+| Visual choice | First proposal selected: Atlas del artífice, DL-011 Civic Garden            |
 
 See [PRODUCT.md](PRODUCT.md) for confirmed product truth and [GLOSSARY.md](GLOSSARY.md) for domain terms.
 

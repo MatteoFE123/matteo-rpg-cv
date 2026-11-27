@@ -15,6 +15,72 @@ const focalMotion = {
   "metric-chorus": "ink-duration",
 };
 
+test("the selected Atlas is the canonical bilingual CV, not the comparison gallery", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await page.addInitScript(() => {
+    window.motionStarts = [];
+    document.addEventListener("animationstart", (event) => {
+      window.motionStarts.push(event.animationName);
+    });
+  });
+  for (const [route, locale] of [
+    ["./", "es"],
+    ["es/", "es"],
+    ["en/", "en"],
+  ]) {
+    await page.goto(route);
+    await expect(page.locator("html")).toHaveAttribute("lang", locale);
+    await expect(page.locator("body")).toHaveClass("civic-garden");
+    await expect(page.locator(".preview-notice, .direction-card")).toHaveCount(
+      0,
+    );
+    await expect(page.locator(".route-map a")).toHaveCount(3);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+      "content",
+      "index, follow",
+    );
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+      "href",
+      `https://matteofe123.github.io/matteo-rpg-cv/${locale}/`,
+    );
+    await expect
+      .poll(() =>
+        page.evaluate(() => window.motionStarts.includes("atlas-route")),
+      )
+      .toBe(true);
+  }
+  await page
+    .locator(".site-header nav")
+    .getByRole("link", { name: "ES" })
+    .click();
+  await expect(page).toHaveURL(/\/es\/$/);
+  await page
+    .locator(".site-header nav")
+    .getByRole("link", { name: "EN" })
+    .click();
+  await expect(page).toHaveURL(/\/en\/$/);
+  await expect(
+    page.getByRole("link", { name: "Download CV", exact: true }),
+  ).toBeVisible();
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 320, height: 740 });
+  await page.goto("./");
+  expect(
+    await page.evaluate(() => window.motionStarts.includes("atlas-route")),
+  ).toBe(false);
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  const download = await page
+    .getByRole("link", { name: "Descargar CV", exact: true })
+    .boundingBox();
+  expect(download.y + download.height).toBeLessThan(740);
+});
+
 for (const direction of directions) {
   test(`${direction}: bilingual exploration, keyboard controls and mobile layout`, async ({
     page,
@@ -140,7 +206,7 @@ test("animated filters and disclosures survive rapid input and reduced-motion ch
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.goto("es/mocks/civic-garden/");
+  await page.goto("es/");
   const regrouping = await page.evaluate(() => {
     for (const filter of ["backend", "all", "infra"]) {
       document.querySelector(`[data-filter="${filter}"]`).click();
@@ -214,7 +280,7 @@ test("professional content and native disclosures remain usable without JavaScri
   });
   try {
     const page = await context.newPage();
-    await page.goto("es/mocks/archive-room/");
+    await page.goto("es/");
     await expect(
       page.getByRole("heading", { name: "Matteo Fecci", exact: true }),
     ).toBeVisible();
@@ -235,7 +301,7 @@ test("filters and disclosures still work when Web Animations are unavailable", a
       getAnimations: { value: undefined },
     });
   });
-  await page.goto("es/mocks/civic-garden/");
+  await page.goto("es/");
   await page.getByRole("button", { name: "Backend y APIs" }).click();
   await expect(page.locator("[data-skill-count]")).toHaveText("6");
   await expect(page.locator('[data-skill-group="ai"]')).toBeHidden();
@@ -251,9 +317,18 @@ test("gallery presents five equally sized directions and public-safe downloadabl
   page,
   request,
 }) => {
-  await page.goto("./");
+  await page.goto("es/designs/");
   const cards = page.locator(".direction-card");
   await expect(cards).toHaveCount(5);
+  await expect(
+    page.getByText("Atlas del artífice es el diseño elegido.", {
+      exact: false,
+    }),
+  ).toBeVisible();
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+    "content",
+    "noindex, nofollow",
+  );
   const widths = await cards.evaluateAll((elements) =>
     elements.map((element) => element.getBoundingClientRect().width),
   );

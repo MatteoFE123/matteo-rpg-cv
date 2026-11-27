@@ -1,0 +1,10 @@
+---
+import Gallery from "../../components/Gallery.astro";
+import type { Locale } from "../../data/cv";
+export function getStaticPaths() {
+  return ["es", "en"].map((lang) => ({ params: { lang } }));
+}
+const locale = Astro.params.lang as Locale;
+---
+
+<Gallery locale={locale} />

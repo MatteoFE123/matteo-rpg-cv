@@ -9,28 +9,29 @@ const { locale } = Astro.props;
 const es = locale === "es";
 ---
 
-<Page
-  locale={locale}
-  title={es ? "Cinco mundos para un CV" : "Five worlds for one CV"}
->
+<Page locale={locale} title={es ? "Archivo de diseños" : "Design archive"}>
   <header class="gallery-header">
-    <a class="wordmark" href={path()}>Matteo Fecci</a>
+    <a class="wordmark" href={path(`${locale}/`)}>Matteo Fecci</a>
     <nav aria-label={es ? "Idioma" : "Language"}>
-      <a href={path("es/")} lang="es" aria-current={es ? "page" : undefined}
-        >ES</a
+      <a
+        href={path("es/designs/")}
+        lang="es"
+        aria-current={es ? "page" : undefined}>ES</a
       >
-      <a href={path("en/")} lang="en" aria-current={!es ? "page" : undefined}
-        >EN</a
+      <a
+        href={path("en/designs/")}
+        lang="en"
+        aria-current={!es ? "page" : undefined}>EN</a
       >
     </nav>
   </header>
   <main id="main" class="gallery-main">
-    <h1>{es ? "Cinco mundos. Un CV." : "Five worlds. One CV."}</h1>
+    <h1>{es ? "Archivo de diseños" : "Design archive"}</h1>
     <p class="gallery-intro">
       {
         es
-          ? "El mismo perfil profesional en cinco direcciones independientes. Ninguna está elegida: abre las propuestas y decide qué mundo cuenta mejor la historia."
-          : "The same professional profile in five independent directions. None is selected: open the proposals and choose the world that tells the story best."
+          ? "Atlas del artífice es el diseño elegido. Aquí se conservan las cinco propuestas originales del mismo perfil profesional."
+          : "The artificer's atlas is the selected design. The five original proposals for the same professional profile are preserved here."
       }
     </p>
     <div class="direction-wall">
@@ -67,8 +68,8 @@ const es = locale === "es";
     <p class="selection-note">
       {
         es
-          ? "Son mocks de selección, no cinco versiones de la aplicación definitiva. Después de elegir una, se desarrollará solo esa dirección."
-          : "These are selection mocks, not five versions of the final application. After choosing, only that direction will be developed."
+          ? "Este archivo documenta la exploración visual. La web principal utiliza únicamente Atlas del artífice."
+          : "This archive documents the visual exploration. The main website uses only the artificer's atlas."
       }
     </p>
   </main>

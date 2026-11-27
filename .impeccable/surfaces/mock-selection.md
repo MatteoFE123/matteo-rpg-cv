@@ -1,7 +1,8 @@
 # Five CV mocks
 
-Mode: Experience. Scope: five alternative previews, not a chosen production world.
-The user approved public-safe content and this discovery stage, not a final visual identity.
+Mode: Experience. Scope: the archived five-direction discovery stage.
+The user has now chosen the first preview, Atlas del artífice (DL-011 Civic Garden).
+The canonical profile's surface brief owns production delivery; these alternatives remain an archive.
 
 ## Direction contract
 
@@ -15,9 +16,9 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 ## Approval boundary
 
-The FINISH production gate stays pending until a direction is selected and the definitive interface is built.
-This stage ends with five working, checked previews presented at equal size, plus the user's selection.
-No DESIGN.md may pretend that the five alternatives are one approved design system.
+The user selected the first working preview on 2026-11-27: "Me quedo con el 1o".
+This discovery stage is complete. The production FINISH gate belongs to the selected atlas.
+DESIGN.md records that world only, never a blend of all five alternatives.
 The additional roll challengers do not replace the user's explicit fixed-library selection.
 
 ## Independent preview grammars
@@ -33,7 +34,7 @@ The additional roll challengers do not replace the user's explicit fixed-library
 ## Motion thesis
 
 The user explicitly requested more animation and dynamism across all five mocks and the gallery.
-Their identities, factual content and pending visual-selection boundary remain unchanged.
+That refinement preserved their identities and factual content while selection was pending.
 
 - Focal moments: the Atlas draws its route; the Archive settles its letter and inks its signature; the Codex reveals its identifier; the Ledger enters its real rows; Ink grows the actual employment-duration columns. The gallery places its visual plates into fixed inspection frames.
 - Continuity: filters regroup surviving skills while count and section geometry update immediately; project disclosures mask their content while their neighbors move, preventing text overlap. Page navigation stays native: cross-document view transitions were rejected after their opt-in was aborted by a live reduced-motion change in Chrome.
@@ -49,4 +50,4 @@ Local evidence in `.impeccable/review/motion` contains 42 normal/reduced capture
 
 Independent disposition: **ship, captured motion refinement only**, with no material fixes. An evidence-only general-purpose agent substituted for the unavailable specialized reviewer, reviewing all 42 filmstrips/report summaries and selected full-size frames. Its packet contained the preceding eight passing scenarios; the ninth compatibility scenario passed afterward without changing normal-browser paint.
 
-Mobile Ink Lighthouse measured performance 100, weighted accessibility 100 and best practices 100, with CLS 0 and TBT 0 ms. Neither these scores nor sampled frames establish universal smoothness, FPS or low-end hardware performance. The definitive visual world and its production FINISH gate remain unselected.
+Mobile Ink Lighthouse measured performance 100, weighted accessibility 100 and best practices 100, with CLS 0 and TBT 0 ms. Neither these scores nor sampled frames establish universal smoothness, FPS or low-end hardware performance. This measurement predates the user's Atlas selection and is not a performance measurement of the canonical atlas.

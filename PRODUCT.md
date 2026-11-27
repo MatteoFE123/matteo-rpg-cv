@@ -47,7 +47,7 @@ Spanish and English offer equivalent content. LinkedIn is the public contact cha
 
 Original fantasy inspired by tabletop RPGs in the spirit of DnD; no copied game art or official branding.
 Matteo Fecci and AI Developer are always visible as the professional identity.
-Reading this as: a developer portfolio for hiring teams, with tabletop-fantasy language and five separate catalog-derived systems.
+Reading this as: a developer portfolio for hiring teams, with tabletop-fantasy language and the selected Civic Garden atlas.
 Design variance 6, motion intensity 5, visual density 4: the user requested more dynamic, world-specific animation.
 Bounded entrances and interactive transitions must preserve scannable facts and reduced-motion support.
 
@@ -70,10 +70,13 @@ No portrait, public project screenshots or verified numerical outcomes were supp
 Responsive layouts, semantic landmarks, visible focus, keyboard-operable controls,
 readable contrast and reduced-motion support.
 
-## Current Approval Boundary
+## Selected Visual Direction
 
-Product discovery is approved; the final visual direction is not.
+The user selected the first proposal, Atlas del artífice (DL-011 Civic Garden).
+Promote its existing composition and animations to the canonical Spanish and English CV.
+Keep the other proposals as a separate design archive, not competing public homepages.
+
+The original discovery sample remains provenance:
 The five distinct specimens sampled without replacement from the current design-lib catalog are
 DL-011 Civic Garden, DL-006 Archive Room, DL-021 Signal Index, DL-019 Process Ledger and DL-008 Metric Chorus.
-Create a separate project-specific mock for each and present all five with equal weight.
-Wait for the user's choice before building the definitive interface. Do not blend their identities.
+Do not blend their identities into the chosen atlas.

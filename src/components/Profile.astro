@@ -1,0 +1,40 @@
+---
+import Page from "../layouts/Page.astro";
+import Hero from "./Hero.astro";
+import CVSections from "./CVSections.astro";
+import { identity } from "../data/cv";
+import type { Locale } from "../data/cv";
+import { directions, path } from "../data/directions";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const direction = directions[0];
+---
+
+<Page
+  locale={locale}
+  title={identity.role}
+  theme={direction.id}
+  preview={false}
+>
+  <header class="site-header">
+    <a class="wordmark" href={path(`${locale}/`)}>{direction.title[locale]}</a>
+    <nav aria-label={locale === "es" ? "Idioma" : "Language"}>
+      <a
+        href={path("es/")}
+        lang="es"
+        aria-current={locale === "es" ? "page" : undefined}>ES</a
+      >
+      <a
+        href={path("en/")}
+        lang="en"
+        aria-current={locale === "en" ? "page" : undefined}>EN</a
+      >
+    </nav>
+  </header>
+  <main id="main" class="cv-main">
+    <Hero locale={locale} direction={direction} />
+    <CVSections locale={locale} />
+  </main>
+</Page>
